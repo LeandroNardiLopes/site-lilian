@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilian Mesquita | Comunicação Global</title>
+    <style>
+        /* RESET E FONTES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fcfcfc;
+        }
+
+        /* CABEÇALHO */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .brand-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .main-tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* SEÇÃO DA ESTEIRA */
+        #esteira {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        /* CARDS */
+        article {
+            background: #ffffff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid #efefef;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: #f0f0f0;
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #666;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* BORDAS LATERAIS CONFORME O PDF */
+        .border-01 { border-left: 8px solid #004aad; }
+        .border-02 { border-left: 8px solid #673ab7; }
+        .border-03 { border-left: 8px solid #ff9800; }
+        .border-04 { border-left: 8px solid #2c3e50; }
+
+        /* BOTÃO WHATSAPP PADRÃO OFICIAL */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366; /* Verde oficial WhatsApp */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px; /* Redondo passa mais amigabilidade */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.95);
+        }
+
+        .whatsapp-btn img {
+            width: 25px;
+            margin-right: 12px;
+            /* Removido o filtro de cor */
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            article { padding: 25px; }
+            .step-number { font-size: 2rem; }
+            .whatsapp-btn span { display: none; }
+            .whatsapp-btn { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="brand-subtitle">Branding & Comunicação Global</span>
+        <h1>Lilian Mesquita Ambrósio</h1>
+        <p class="main-tagline">"Meu trabalho é fazer o seu trabalho se comunicar melhor."</p>
+    </header>
+
+    <section id="esteira">
+        <h2 class="section-title">A Esteira Estratégica</h2>
+
+        <article class="border-01">
+            <span class="step-number">01</span>
+            <h3>Fluência Executiva Internacional</h3>
+            <p>Diagnóstico estratégico e destravamento para negociações e liderança global de alta performance.</p>
+        </article>
+
+        <article class="border-02">
+            <span class="step-number">02</span>
+            <h3>Inteligência Emocional & Assertividade</h3>
+            <p>Gestão de performance sob pressão e comunicação multicultural para líderes de grandes corporações.</p>
+        </article>
+
+        <article class="border-03">
+            <span class="step-number">03</span>
+            <h3>Oratória & Linguagem Persuasiva</h3>
+            <p>Storytelling executivo, presença física e influência em ambientes de tomada de decisão.</p>
+        </article>
+
+        <article class="border-04">
+            <span class="step-number">04</span>
+            <h3>Autoridade Intelectual & Legado</h3>
+            <p>Consolidação de marca pessoal, estruturação de palestras e liderança de pensamento no mercado.</p>
+        </article>
+    </section>
+
+    <a href="https://wa.me/5535984226585?text=Olá%20Lilian,%20gostaria%20de%20agendar%20uma%20conversa%20estratégica." class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>Conversa Estratégica</span>
+    </a>
+
+</body>
+</html>
+
+
