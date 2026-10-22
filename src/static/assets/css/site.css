@@ -286,7 +286,7 @@ h1 em, h2 em { font-weight: 500; }
 
 /* Como funciona: etapas em sequência */
 .steps { list-style: none; margin: 0 0 40px; padding: 0; display: grid; gap: 22px; counter-reset: s; }
-.step { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; }
+.step { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-content: start; }
 .step .num { grid-row: span 2; }
 .step h3 { font-size: 1.1rem; margin: 6px 0 4px; }
 .step p { margin: 0; font-size: var(--t-sm); color: var(--texto-suave); }
