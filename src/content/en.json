@@ -17,7 +17,10 @@
     "nav_talks": "Companies",
     "nav_cta": "Apply",
     "lang_menu": "Language",
-    "logo_alt": "Lilian Mesquita, Bilingual Communication"
+    "logo_alt": "Lilian Mesquita, Bilingual Communication",
+    "follow": "Follow my work",
+    "instagram_label": "Lilian Mesquita on Instagram",
+    "linkedin_label": "Lilian Mesquita on LinkedIn"
   },
   "hero": {
     "eyebrow": "English and communication for executives",
@@ -216,7 +219,6 @@
   },
   "footer": {
     "tagline": "Intelligent Communication · Inductive Method",
-    "instagram": "Instagram",
     "rights": "All rights reserved."
   },
   "notfound": {

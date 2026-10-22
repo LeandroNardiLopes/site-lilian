@@ -201,6 +201,8 @@
           {{#each t.about.credentials}}<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ . }}</li>{{/each}}
         </ul>
         <p class="signature">{{ t.about.signature }}</p>
+        <p class="label about__follow">{{ t.ui.follow }}</p>
+        {{> social }}
       </div>
     </div>
   </section>

@@ -6,6 +6,7 @@ Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no f
 ### Adicionado
 - Novo site institucional em três idiomas (pt-BR, en, es), com posicionamento do Plano High Level e do Método Indutivo.
 - Seções: abertura, prova, a pergunta errada, Armadilha do Aluno, Método (CENA), para quem é, como funciona, cases, quem conduz, para empresas, chamada final.
+- Atalhos com ícone para Instagram (@inglesindutivo) e LinkedIn no rodapé e em "Quem conduz".
 - Cases anônimos: engenheiro (Austrália), coordenadora de Trade Marketing e gerente de multinacional de alimentos.
 - Encontros online de 1 a 5 por semana; cena de viagem pessoal e turismo; feiras internacionais na China, EUA e Europa.
 - Formulário de aplicação multilíngue com régua de qualificação e saída pelo WhatsApp; atalho `#empresa`.
