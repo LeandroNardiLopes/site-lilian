@@ -170,6 +170,18 @@
         </article>
         {{/each}}
       </div>
+      <!-- Outros processos (anônimos). Depoimento é opcional: se "quote" estiver vazio, não aparece. -->
+      <h3 class="label cases__others-label">{{ t.cases.others_label }}</h3>
+      <div class="cases cases--others">
+        {{#each t.cases.others}}
+        <article class="case case--small">
+          <p class="case__tag">{{ .tag }}</p>
+          <h3>{{ .role }}</h3>
+          <blockquote class="case__quote">{{ .quote }}</blockquote>
+          <p>{{ .text }}</p>
+        </article>
+        {{/each}}
+      </div>
       <p class="muted center cases__more">{{ t.cases.more }}</p>
     </div>
   </section>

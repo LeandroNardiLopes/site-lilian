@@ -161,7 +161,28 @@
         "after": "Quando alguém volta para um novo objetivo, o método foi aprovado na prática."
       }
     ],
-    "more": "Também preparei diversos executivos para feiras e negócios internacionais na China, nos EUA e na Europa, entre outros destinos, e uma cientista para defender o projeto de doutorado na Austrália."
+    "others_label": "Outros processos",
+    "others": [
+      {
+        "tag": "Austrália · Defesa de tese",
+        "role": "Engenheiro",
+        "quote": "",
+        "text": "Precisava defender a tese diante de uma banca internacional, e o inglês era a maior barreira. Em 4 meses, alcançamos o objetivo. Hoje o inglês é mais uma ferramenta que ele domina e usa quando precisa."
+      },
+      {
+        "tag": "Multinacional · Trade Marketing",
+        "role": "Coordenadora de Trade Marketing",
+        "quote": "",
+        "text": "Já tinha perdido várias oportunidades de promoção para gerência. As travas da comunicação e do inglês a impediam de disputar o cargo. Hoje conduz reuniões bilíngues com segurança e naturalidade."
+      },
+      {
+        "tag": "Multinacional de alimentos",
+        "role": "Gerente",
+        "quote": "Fui discursar num evento da empresa para 400 colaboradores e travei com o microfone na mão. Depois de 3 minutos de silêncio, fui embora do auditório. Eu não fazia ideia do que dizer ou fazer. Pensei que ia improvisar, mas não deu certo.",
+        "text": "Hoje ele conduz reuniões internacionais e discursa para os colaboradores com autoridade e confiança."
+      }
+    ],
+    "more": "Também preparei diversos executivos para feiras e negócios internacionais na China, nos EUA e na Europa, entre outros destinos."
   },
   "about": {
     "kicker": "Quem conduz",

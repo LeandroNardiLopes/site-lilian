@@ -302,6 +302,17 @@ h1 em, h2 em { font-weight: 500; }
 .case h3 span { font-family: var(--fonte-texto); font-size: var(--t-sm); color: var(--texto-suave); font-weight: 400; }
 .case__after { margin: 0; padding-top: 16px; border-top: 1px solid var(--linha); font-family: var(--fonte-titulo); font-style: italic; color: var(--roxo); }
 .cases__more { margin: 30px auto 0; max-width: 640px; }
+.cases__others-label { margin: 44px 0 16px; }
+.case--small { box-shadow: none; padding: 24px; }
+.case--small h3 { font-size: 1.2rem; }
+.case--small p:last-child { margin: 0; font-size: var(--t-sm); }
+.case__quote {
+  margin: 0 0 14px; padding-left: 14px; border-left: 2px solid var(--dourado);
+  font-family: var(--fonte-titulo); font-style: italic; color: var(--roxo); font-size: .98rem; line-height: 1.55;
+}
+.case__quote::before { content: "\201C"; }
+.case__quote::after { content: "\201D"; }
+.case__quote:empty { display: none; }
 
 /* Quem conduz */
 .about { display: grid; gap: 48px; align-items: start; }
@@ -367,6 +378,7 @@ h1 em, h2 em { font-weight: 500; }
   .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cases--others { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
   .steps { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
   .step { grid-template-columns: 1fr; }
   .step .num { grid-row: auto; margin-bottom: 8px; }
