@@ -1,0 +1,378 @@
+<!doctype html>
+<!-- ARQUIVO GERADO PELO build.py. NÃO EDITE AQUI: edite src/ e rode python3 build.py -->
+
+<!--
+  TEMPLATE: home.html  (página inicial, gerada em / , /en/ e /es/)
+  ---------------------------------------------------------------
+  NÃO EDITE OS TEXTOS AQUI. Os textos ficam em src/content/<idioma>.json.
+  Este arquivo só define a ESTRUTURA da página, na ordem em que aparece:
+
+    1. Topo (partials/header.html)
+    2. Abertura (hero)            -> t.hero
+    3. Faixa de prova             -> t.proof
+    4. A pergunta errada          -> t.question
+    5. A Armadilha do Aluno       -> t.trap
+    6. Método Indutivo (#metodo)  -> t.method
+    7. Para quem é                -> t.audience
+    8. Como funciona              -> t.process
+    9. Cases (#cases)             -> t.cases
+   10. Quem conduz (#sobre)       -> t.about
+   11. Para empresas (#empresas)  -> t.talks
+   12. Chamada final              -> t.final
+   13. Rodapé (partials/footer.html)
+
+  A sintaxe das marcações entre chaves duplas está explicada no topo do build.py
+  e em docs/GUIA-DE-EDICAO.md.
+-->
+<html lang="es">
+<head>
+<!--
+  PARCIAL: head.html
+  Cabeçalho técnico de todas as páginas (o que o navegador e o Google leem).
+  Variáveis vêm do build.py: page.title, page.description, page.url, alternates...
+  Segurança: a meta Content-Security-Policy abaixo só permite scripts, estilos,
+  fontes e imagens do próprio site. Nada de terceiros. Detalhes em docs/SEGURANCA.md.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FDFBF8">
+
+<title>Lilian Mesquita | Inglés y comunicación para ejecutivos</title>
+<meta name="description" content="Preparo a ejecutivos, abogados, médicos y empresarios para reuniones, negociaciones, entrevistas y conferencias en inglés, con el Método Inductivo.">
+<meta name="author" content="Lilian Mesquita">
+<link rel="canonical" href="https://inglesindutivo.com.br/es/">
+
+<!-- Versões do mesmo conteúdo em outros idiomas (ajuda o Google a mostrar o idioma certo) -->
+<link rel="alternate" hreflang="pt-BR" href="https://inglesindutivo.com.br/">
+<link rel="alternate" hreflang="en" href="https://inglesindutivo.com.br/en/">
+<link rel="alternate" hreflang="es" href="https://inglesindutivo.com.br/es/">
+<link rel="alternate" hreflang="x-default" href="https://inglesindutivo.com.br/">
+
+<!-- Pré-visualização ao compartilhar o link (WhatsApp, LinkedIn, Instagram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lilian Mesquita · Comunicación Inteligente">
+<meta property="og:description" content="No te preparo para el aula. Te preparo para la sala en la que vas a estar.">
+<meta property="og:url" content="https://inglesindutivo.com.br/es/">
+<meta property="og:image" content="https://inglesindutivo.com.br/assets/img/og-lilian-mesquita.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/favicon.png">
+
+<!-- Fontes da marca, hospedadas no próprio site: Playfair Display (títulos) e Poppins (texto) -->
+<link rel="preload" href="/assets/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/assets/css/site.css?v=20261022">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Lilian Mesquita · Comunicação Inteligente","description":"Preparo a ejecutivos, abogados, médicos y empresarios para reuniones, negociaciones, entrevistas y conferencias en inglés, con el Método Inductivo.","url":"https://inglesindutivo.com.br/es/","image":"https://inglesindutivo.com.br/assets/img/og-lilian-mesquita.jpg","areaServed":"Worldwide","availableLanguage":["pt-BR","en","es"],"founder":{"@type":"Person","name":"Lilian Mesquita","sameAs":["https://www.instagram.com/inglesindutivo/"]}}</script>
+</head>
+<body>
+<!--
+  PARCIAL: header.html
+  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
+  No celular, o menu de seções some e ficam só logo, idioma e botão.
+  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+-->
+<a class="skip" href="#conteudo">Saltar al contenido</a>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="/es/">
+      <img src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicación Bilingüe" width="180" height="72">
+    </a>
+
+    <nav class="topnav" aria-label="Seções">
+      <a href="/es/#metodo">Método</a>
+      <a href="/es/#cases">Casos</a>
+      <a href="/es/#sobre">Sobre mí</a>
+      <a href="/es/#empresas">Empresas</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <!-- Seletor de idioma: links simples para a mesma página em outro idioma -->
+      <nav class="langs" aria-label="Idioma">
+        <a href="/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/" hreflang="en" lang="en">EN</a><a href="/es/" hreflang="es" lang="es" aria-current="true">ES</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="/es/aplicacao/">Aplicar</a>
+    </div>
+  </div>
+</header>
+
+
+<main id="conteudo">
+
+  <!-- 2. ABERTURA -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">Inglés y comunicación para ejecutivos</p>
+        <h1 class="hero__title">No te preparo para el aula. Te preparo para <em>la sala en la que vas a estar.</em></h1>
+        <p class="lead">Una reunión, una negociación, una entrevista, un escenario. Para quien tiene un compromiso internacional con fecha y necesita llegar entero a él.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="/es/aplicacao/">Hacer mi aplicación</a>
+          <a class="btn btn--ghost" href="#metodo">Conocer el método</a>
+        </div>
+        <p class="note">Atención en línea, en Brasil y en el exterior.</p>
+      </div>
+      <figure class="hero__photo frame">
+        <img src="/assets/img/lilian-mesquita-escritorio.jpg" alt="Lilian Mesquita con blazer morado, sentada en su oficina" width="1400" height="933" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3. FAIXA DE PROVA -->
+  <section class="proof" aria-label="Clientes preparados para">
+    <div class="wrap proof__inner">
+      <p class="proof__label">Clientes preparados para</p>
+      <ul class="proof__list">
+        <li><strong>Harvard</strong><span>Negociación</span></li><li><strong>University of Akron</strong><span>Programa ejecutivo</span></li><li><strong>SDA Bocconi</strong><span>Becario en Milán</span></li><li><strong>China</strong><span>Feria internacional</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. A PERGUNTA ERRADA -->
+  <section class="section question">
+    <div class="wrap narrow center">
+      <p class="eyebrow">La pregunta equivocada</p>
+      <h2 class="question__title">“¿Mi inglés es suficiente?”</h2>
+      <p class="lead">Es lo que casi todo ejecutivo me pregunta en la primera conversación. La pregunta correcta es otra: ¿suficiente para qué? ¿Para qué sala, con quién del otro lado, en qué fecha?</p>
+      <p class="thesis">Tu inglés no está atrasado. <em>Tu idea sí.</em></p>
+      <p class="muted">La comunicación no se mide en la salida. Se mide en la llegada. Si el mensaje no está claro en tu propio idioma, no llega entero en inglés.</p>
+    </div>
+  </section>
+
+  <!-- 5. A ARMADILHA DO ALUNO -->
+  <section class="section section--tight">
+    <div class="wrap narrow">
+      <div class="trap">
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-feather"/></svg>
+        <p class="eyebrow">La Trampa del Alumno</p>
+        <h2>Cuanto más estudias como alumno, más esperas que te corrijan.</h2>
+        <p>Y un alumno no negocia, no lidera ni da conferencias. Leer, anotar y repasar dan sensación de progreso. La seguridad nace cuando hablas, grabas y ensayas la situación real.</p>
+        <p class="trap__punch">No eres alumno. <em>Eres hablante.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MÉTODO INDUTIVO -->
+  <section class="section section--lilac" id="metodo">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Método Inductivo</p>
+        <h2>El camino tiene cuatro pasos.</h2>
+        <p class="lead">Cada proceso empieza por tu escena, no por la gramática. Los cuatro pasos funcionan juntos: quitar uno debilita todo el resultado.</p>
+      </div>
+      <ol class="pillars">
+        
+        <li class="pillar">
+          <span class="num" aria-hidden="true">1</span>
+          <h3>Escenario</h3>
+          <p class="pillar__sub">Mapa de la Escena</p>
+          <p>La fecha, la sala, quién decide del otro lado y qué está en juego: el cargo, el contrato, el puesto.</p>
+        </li>
+        
+        <li class="pillar">
+          <span class="num" aria-hidden="true">2</span>
+          <h3>Esencia</h3>
+          <p class="pillar__sub">Voz de Mando</p>
+          <p>La idea organizada antes de convertirse en inglés. La misma autoridad en los dos idiomas, sin el bloqueo emocional.</p>
+        </li>
+        
+        <li class="pillar">
+          <span class="num" aria-hidden="true">3</span>
+          <h3>Nicho</h3>
+          <p class="pillar__sub">Vocabulario de Adentro</p>
+          <p>El idioma de tu mundo: derecho, medicina, negociación, importación. Lo que no vas a usar se queda fuera.</p>
+        </li>
+        
+        <li class="pillar">
+          <span class="num" aria-hidden="true">4</span>
+          <h3>Actuación</h3>
+          <p class="pillar__sub">Ensayo Real</p>
+          <p>La escena repetida hasta volverse memoria, con práctica diaria breve y devolución. Sin leer, sin anotar.</p>
+        </li>
+        
+      </ol>
+      <p class="method__layer"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>En todos los pasos: cuerpo, voz y emoción. Postura, dicción y presencia.</p>
+      <p class="method__close">El estreno nunca es la primera vez.</p>
+    </div>
+  </section>
+
+  <!-- 7. PARA QUEM É -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Para quién es</p>
+        <h2>Para quien tiene una sala importante por delante.</h2>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="label">A quién acompaño</h3>
+          <ul class="checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ejecutivos y gerentes</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Abogados</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Médicos y dentistas</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Empresarios y socios</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="label">Las escenas que preparamos</h3>
+          <ul class="checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reuniones o negociaciones con extranjeros</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Entrevistas y procesos de selección</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Presentaciones, conferencias o defensa de proyectos</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Programas o cursos en el exterior</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ferias y viajes de negocios</li>
+          </ul>
+        </div>
+      </div>
+      <p class="notfor">No es para quien busca clases sueltas o un curso sin objetivo. Trabajo con procesos con principio, desarrollo y final, construidos a partir de un compromiso real.</p>
+    </div>
+  </section>
+
+  <!-- 8. COMO FUNCIONA -->
+  <section class="section section--peach">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>De la aplicación al estreno.</h2>
+      </div>
+      <ol class="steps">
+        
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">1</span>
+          <h3>Aplicación</h3>
+          <p>Me cuentas cuál es tu escena y su fecha. Lleva unos 2 minutos.</p>
+        </li>
+        
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">2</span>
+          <h3>Análisis de Negocio</h3>
+          <p>Una conversación conmigo sobre el compromiso, lo que está en juego y el formato ideal para ti.</p>
+        </li>
+        
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">3</span>
+          <h3>Mapa de la Escena</h3>
+          <p>Diseñamos juntos la sala, las personas y las situaciones que vas a enfrentar.</p>
+        </li>
+        
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">4</span>
+          <h3>Ensayo semanal</h3>
+          <p>Un encuentro en vivo por semana, práctica diaria breve con devolución y prácticas en grupo.</p>
+        </li>
+        
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">5</span>
+          <h3>Estreno</h3>
+          <p>Simulación final completa. Cuando llega el día, la escena ya es conocida.</p>
+        </li>
+        
+      </ol>
+      <div class="center"><a class="btn btn--primary" href="/es/aplicacao/">Hacer mi aplicación</a></div>
+    </div>
+  </section>
+
+  <!-- 9. CASES -->
+  <section class="section" id="cases">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Casos</p>
+        <h2>Estudié la escena antes que ellos.</h2>
+      </div>
+      <div class="cases">
+        
+        <article class="case">
+          <p class="case__tag">Harvard · Curso de extensión en Negociación</p>
+          <h3>Isabella Witzel<span>Abogada</span></h3>
+          <p>Ella ya se comunicaba en inglés, pero en esa sala tendría que argumentar y convencer. En 45 días, cada tema del curso se convirtió en una situación real: BATNA, ZOPA, anclaje, escucha activa. Cuando se sentó a la mesa con un juez estadounidense, herederos árabes y grandes abogados, ningún tema era nuevo.</p>
+          <p class="case__after">Después, construimos juntas su conferencia sobre negociación para abogados.</p>
+        </article>
+        
+        <article class="case">
+          <p class="case__tag">University of Akron y SDA Bocconi</p>
+          <h3>Vinícius Vilela<span>Abogado</span></h3>
+          <p>Primero, inglés para viajar sin bloquearse. Con esa base, fue admitido en el programa ejecutivo de la University of Akron, entre unas 7 mil candidaturas. Después volvió con una nueva escena, Milán: 24 sesiones diseñadas a partir del programa de la Bocconi. Fue admitido como becario.</p>
+          <p class="case__after">Cuando alguien vuelve por un nuevo objetivo, el método está aprobado en la práctica.</p>
+        </article>
+        
+      </div>
+      <p class="muted center cases__more">También preparé a ejecutivos para cerrar negocios en una feria internacional en China y a una científica para defender su proyecto de doctorado en Australia.</p>
+    </div>
+  </section>
+
+  <!-- 10. QUEM CONDUZ -->
+  <section class="section section--lilac" id="sobre">
+    <div class="wrap about">
+      <figure class="about__photo frame">
+        <img src="/assets/img/lilian-mesquita-blazer-bege.jpg" alt="Retrato de Lilian Mesquita con blazer beige" width="1200" height="675" loading="lazy">
+      </figure>
+      <div class="about__text">
+        <p class="eyebrow">Quién conduce</p>
+        <h2>Yo odiaba el inglés. <em>Mi dificultad se convirtió en el método.</em></h2>
+        <p>Reprobé inglés en la universidad. Separé solo lo que necesitaba para comunicarme y entrené a mi manera. En menos de tres meses, era la única, en un salón de 45, que hablaba inglés con los profesores. Hoy preparo a profesionales para las salas más importantes de su carrera.</p>
+        <h3 class="label">Formación y trayectoria</h3>
+        <ul class="checks checks--compact">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Más de 20 años en educación</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Licenciatura en Letras, Portugués e Inglés</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Extensión en Educación Bilingüe</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Especialización en Gestión Escolar y Neuroaprendizaje</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Especialista conductual, con enfoque en neurodivergencia</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Formación en Educación Especial</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Coordinadora pedagógica y formadora de equipos docentes</li>
+        </ul>
+        <p class="signature">Lilian Mesquita</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. PARA EMPRESAS -->
+  <section class="talks" id="empresas">
+    <div class="wrap talks__grid">
+      <div class="talks__text">
+        <p class="eyebrow eyebrow--light">Para empresas</p>
+        <h2>Conferencia Comunicación Inteligente</h2>
+        <p>Para equipos que necesitan hacerse entender, conectar y ser recordados, en portugués y en inglés. Lleva el método a tu empresa en formato de conferencia o capacitación.</p>
+        <a class="btn btn--light" href="/es/aplicacao/#empresa">Hablar sobre mi equipo</a>
+      </div>
+      <figure class="talks__photo">
+        <img src="/assets/img/lilian-mesquita-palestrante.jpg" alt="Lilian Mesquita dando una conferencia, con blazer blanco" width="747" height="930" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 12. CHAMADA FINAL -->
+  <section class="section final">
+    <div class="wrap narrow center">
+      <svg class="icon icon--lg" aria-hidden="true"><use href="#i-globe"/></svg>
+      <h2>¿Tienes un compromiso internacional con fecha?</h2>
+      <p class="lead">Cuéntame cuál es tu escena. Leo cada aplicación personalmente y respondo para agendar tu Análisis de Negocio.</p>
+      <a class="btn btn--primary btn--lg" href="/es/aplicacao/">Hacer mi aplicación</a>
+      <p class="note">Lleva unos 2 minutos.</p>
+    </div>
+  </section>
+
+</main>
+
+<!--
+  PARCIAL: footer.html
+  Rodapé de todas as páginas: logo, assinatura do método, Instagram e direitos.
+-->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <img class="footer__logo" src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicación Bilingüe" width="160" height="64" loading="lazy">
+    <p class="footer__tagline">Comunicación Inteligente · Método Inductivo</p>
+    <p class="footer__links">
+      <a href="https://www.instagram.com/inglesindutivo/" target="_blank" rel="noopener noreferrer">Instagram @inglesindutivo</a>
+    </p>
+    <p class="footer__rights">© 2026 Lilian Mesquita. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!--
+  PARCIAL: icons.html
+  Ícones da marca: traço fino dourado, como no ebook My English Journey.
+  Para usar um ícone na página: <svg class="icon"><use href="#i-check"/></svg>
+  A cor vem do CSS (currentColor), então todos ficam dourados por padrão.
+-->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-feather" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-6 0-11 4-12 11l-1 5"/><path d="M8 15c5 0 9-3 11-8"/><path d="M10 11h6"/></g></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></g></symbol>
+</svg>
+
+</body>
+</html>

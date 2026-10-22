@@ -1,0 +1,25 @@
+<!doctype html>
+<!--
+  TEMPLATE: 404.html
+  Página mostrada pelo GitHub Pages quando alguém abre um endereço que não existe.
+  É gerada só no idioma principal (português), com links para os outros idiomas.
+-->
+<html lang="{{ t.lang }}">
+<head>
+{{> head }}
+<meta name="robots" content="noindex">
+</head>
+<body>
+{{> header }}
+<main id="conteudo" class="section">
+  <div class="wrap narrow center">
+    <svg class="icon icon--lg" aria-hidden="true"><use href="#i-globe"/></svg>
+    <h1>{{ t.notfound.title }}</h1>
+    <p class="lead">{{ t.notfound.body }}</p>
+    <a class="btn btn--primary" href="{{ t.path }}">{{ t.notfound.cta }}</a>
+  </div>
+</main>
+{{> footer }}
+{{> icons }}
+</body>
+</html>

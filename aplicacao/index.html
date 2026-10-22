@@ -1,265 +1,130 @@
 <!doctype html>
+<!-- ARQUIVO GERADO PELO build.py. NÃO EDITE AQUI: edite src/ e rode python3 build.py -->
+
+<!--
+  TEMPLATE: aplicacao.html  (formulário de aplicação, gerado em /aplicacao/, /en/aplicacao/, /es/aplicacao/)
+  ---------------------------------------------------------------
+  NÃO EDITE OS TEXTOS AQUI. Perguntas, opções e mensagens ficam em
+  src/content/<idioma>.json, dentro de "form".
+
+  Como funciona:
+  - O build.py coloca os textos do formulário num bloco JSON (#form-data) nesta página.
+  - O script /assets/js/aplicacao.js lê esse bloco e monta uma pergunta por tela.
+  - Nada é enviado a servidor nenhum. No fim, o lead qualificado abre o WhatsApp
+    com as respostas já escritas. Quem não se qualifica recebe uma mensagem gentil.
+  - Regras de qualificação: veja "tag" nas opções do JSON e a função qualifica() no JS.
+-->
 <html lang="pt-BR">
 <head>
+<!--
+  PARCIAL: head.html
+  Cabeçalho técnico de todas as páginas (o que o navegador e o Google leem).
+  Variáveis vêm do build.py: page.title, page.description, page.url, alternates...
+  Segurança: a meta Content-Security-Policy abaixo só permite scripts, estilos,
+  fontes e imagens do próprio site. Nada de terceiros. Detalhes em docs/SEGURANCA.md.
+-->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FDFBF8">
+
+<title>Aplicação | Lilian Mesquita</title>
 <meta name="description" content="Aplicação para a Análise de Negócio com Lilian Mesquita. Inglês e comunicação para executivos.">
-<meta property="og:title" content="Aplicação · Lilian Mesquita">
+<meta name="author" content="Lilian Mesquita">
+<link rel="canonical" href="https://inglesindutivo.com.br/aplicacao/">
+
+<!-- Versões do mesmo conteúdo em outros idiomas (ajuda o Google a mostrar o idioma certo) -->
+<link rel="alternate" hreflang="pt-BR" href="https://inglesindutivo.com.br/aplicacao/">
+<link rel="alternate" hreflang="en" href="https://inglesindutivo.com.br/en/aplicacao/">
+<link rel="alternate" hreflang="es" href="https://inglesindutivo.com.br/es/aplicacao/">
+<link rel="alternate" hreflang="x-default" href="https://inglesindutivo.com.br/aplicacao/">
+
+<!-- Pré-visualização ao compartilhar o link (WhatsApp, LinkedIn, Instagram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aplicação | Lilian Mesquita">
 <meta property="og:description" content="Eu preparo você para a sala onde vai estar.">
-<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}</style>
-<title>Aplicação Lilian Mesquita</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap">
-<style>
-/* Layout: uma pergunta por tela, cartão central estreito, como uma ficha de entrevista bem cuidada */
-:root{
-  --bg:#FBF8F4; --card:#FFFFFF; --ink:#222222; --muted:#6E6670;
-  --lilac:#6B4C8A; --lilac-soft:#ECE4F2; --gold:#C9A876; --peach:#F6E3D6; --line:#E8DFD3;
-  --serif:"Lora",Georgia,"Times New Roman",serif;
-  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px}
-.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-header{display:flex;align-items:center;gap:14px}
-.mono{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;
-  font-family:var(--serif);font-size:19px;color:var(--lilac);background:var(--lilac-soft);flex:none}
-.brand{display:flex;flex-direction:column;min-width:0}
-.brand strong{font-family:var(--serif);font-weight:600;color:var(--lilac);font-size:18px;line-height:1.2}
-.brand span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.progress{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
-.progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px 22px;position:relative}
-.card::before{content:"";position:absolute;inset:6px;border:1px solid var(--gold);opacity:.35;border-radius:3px;pointer-events:none}
-.eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 8px}
-h1,h2{font-family:var(--serif);color:var(--lilac);font-weight:600;text-wrap:balance;margin:0 0 12px;line-height:1.25}
-h1{font-size:clamp(25px,6vw,31px)} h2{font-size:clamp(20px,5vw,24px)}
-p{margin:0 0 12px;max-width:62ch}
-.lead{font-size:15.5px}
-.muted{color:var(--muted);font-size:13.5px}
-em.serif{font-family:var(--serif);font-style:italic;color:var(--lilac)}
-.opts{display:flex;flex-direction:column;gap:10px;margin:16px 0 4px}
-.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:6px;padding:13px 14px;cursor:pointer;background:var(--card);transition:border-color .15s,background .15s}
-.opt:hover{border-color:var(--gold)}
-.opt input{margin:4px 0 0;accent-color:var(--lilac);flex:none}
-.opt:has(input:checked){border-color:var(--lilac);background:var(--lilac-soft)}
-.opt b{font-weight:500;display:block}
-.opt small{color:var(--muted);font-size:13px;display:block;line-height:1.45}
-label.f{display:block;font-size:13px;font-weight:500;margin:14px 0 6px}
-input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px 13px}
-textarea{min-height:92px;resize:vertical}
-input[type=text]:focus,textarea:focus{outline:2px solid var(--lilac);outline-offset:1px;border-color:var(--lilac)}
-.nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap}
-button,.btn{font:inherit;font-weight:500;border-radius:40px;padding:12px 24px;cursor:pointer;border:1px solid var(--lilac);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.primary{background:var(--lilac);color:#fff}
-.primary:hover{filter:brightness(1.08)}
-.ghost{background:transparent;color:var(--lilac);border-color:transparent;padding-inline:6px}
-button:focus-visible,.btn:focus-visible,.opt:focus-within{outline:2px solid var(--gold);outline-offset:2px}
-.err{color:#9B3B3B;font-size:13px;margin-top:10px;min-height:1em}
-.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0}
-.pillars div{border-top:1px solid var(--gold);padding-top:8px;font-size:13px}
-.pillars b{font-family:var(--serif);color:var(--lilac);font-size:15px;display:block}
-.summary{background:var(--peach);border-radius:6px;padding:14px 16px;font-size:13.5px;white-space:pre-wrap;margin:14px 0;max-height:240px;overflow:auto}
-.phone{font-family:var(--serif);color:var(--lilac);font-size:17px;user-select:all}
-footer{text-align:center;font-size:12px;color:var(--muted);letter-spacing:.06em}
-footer b{font-family:var(--serif);color:var(--lilac);font-weight:500;letter-spacing:0;font-size:14px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+<meta property="og:url" content="https://inglesindutivo.com.br/aplicacao/">
+<meta property="og:image" content="https://inglesindutivo.com.br/assets/img/og-lilian-mesquita.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/favicon.png">
+
+<!-- Fontes da marca, hospedadas no próprio site: Playfair Display (títulos) e Poppins (texto) -->
+<link rel="preload" href="/assets/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/assets/css/site.css?v=20261022">
+
+<meta name="robots" content="noindex">
 </head>
-<body>
+<body class="page-form">
+<!--
+  PARCIAL: header.html
+  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
+  No celular, o menu de seções some e ficam só logo, idioma e botão.
+  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+-->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="/">
+      <img src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicação Bilíngue" width="180" height="72">
+    </a>
 
-<div class="wrap">
-  <header>
-    <div class="mono" aria-hidden="true">LM</div>
-    <div class="brand"><strong>Lilian Mesquita</strong><span>Inglês e comunicação para executivos</span></div>
-  </header>
-  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
-  <main class="card" id="card" aria-live="polite"></main>
-  <footer><b>Lilian Mesquita</b><br>Comunicação Inteligente · Método Indutivo</footer>
-</div>
+    <nav class="topnav" aria-label="Seções">
+      <a href="/#metodo">Método</a>
+      <a href="/#cases">Cases</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/#empresas">Empresas</a>
+    </nav>
 
-<script>
-/* ===== CONFIGURAÇÃO ===== */
-const WHATSAPP = "5535984226585";            // número com DDI e DDD, só dígitos. Ex.: 5535999999999
-const INSTAGRAM = "https://www.instagram.com/inglesindutivo/";
-/* ======================== */
+    <div class="topbar__actions">
+      <!-- Seletor de idioma: links simples para a mesma página em outro idioma -->
+      <nav class="langs" aria-label="Idioma">
+        <a href="/aplicacao/" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a><a href="/en/aplicacao/" hreflang="en" lang="en">EN</a><a href="/es/aplicacao/" hreflang="es" lang="es">ES</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="/aplicacao/">Aplicar</a>
+    </div>
+  </div>
+</header>
 
-const A = {};               // respostas
-let path = null, i = 0;
 
-const R = (id,label,opts) => ({type:"radio",id,label,opts});
-
-const intro = {type:"intro"};
-const who = R("para","Esta aplicação é para quem?",[
-  ["mim","Para mim","Tenho um compromisso em inglês e quero me preparar"],
-  ["empresa","Para minha empresa ou equipe","Palestra ou treinamento de comunicação para um grupo"]
-]);
-
-const individual = [
-  {type:"text",id:"nome",label:"Como você se chama?",fields:[["nome","Nome e sobrenome",true]]},
-  {type:"combo",id:"area",label:"Onde você atua hoje?",opts:[
-    ["Executivo(a), diretor(a) ou gestor(a)"],["Advocacia"],["Medicina ou odontologia"],
-    ["Empresário(a) ou sócio(a)"],["Profissional em ascensão na empresa"],["Outra área"]],
-    fields:[["cargo","Seu cargo ou função",true]]},
-  {type:"combo",id:"compromisso",label:"Qual é o seu compromisso internacional?",
-    help:"Pense na situação real em que o inglês vai fazer diferença.",opts:[
-    ["Reunião ou negociação com estrangeiros"],["Apresentação, palestra ou defesa de projeto"],
-    ["Entrevista ou processo seletivo"],["Programa, curso ou evento no exterior"],
-    ["Feira ou viagem de negócios"],["Ainda não tenho um compromisso definido","nenhum"]],
-    fields:[["cena","Descreva a cena em uma ou duas frases (onde, com quem, o que você precisa conseguir)",false,true]]},
-  R("data","Para quando é esse compromisso?",[
-    ["Nos próximos 30 dias"],["Entre 1 e 3 meses"],["Entre 3 e 6 meses"],["Daqui a mais de 6 meses"],["Ainda sem data definida","semdata"]]),
-  R("jogo","O que está em jogo nessa cena?",[
-    ["Uma promoção ou um novo cargo"],["Um contrato ou um negócio"],["Uma vaga ou uma aprovação"],
-    ["Minha imagem e autoridade no palco ou na reunião"],["Outro motivo"]]),
-  R("nivel","Como está o seu inglês hoje?",[
-    ["Começo praticamente do zero"],["Entendo, mas travo na hora de falar"],
-    ["Falo, mas não com a segurança que a cena exige"],["Já falo bem e quero lapidar"]]),
-  R("rotina","O processo pede um encontro ao vivo por semana e uma prática curta todos os dias (gravação de 20 a 30 segundos). Isso cabe na sua rotina?",[
-    ["Sim, eu me comprometo"],["Preciso organizar, mas consigo"],["Neste momento, não","nao"]]),
-  R("invest","Este é um processo individual, construído a partir da sua cena, e tratado como investimento de carreira. Como você está hoje em relação a isso?",[
-    ["Se fizer sentido, eu decido e invisto agora"],["Depende de aprovação ou reembolso da empresa"],
-    ["Procuro aulas avulsas ou a opção mais econômica","barato"]]),
-  R("origem","Como você chegou até aqui?",[
-    ["Instagram"],["LinkedIn"],["Indicação de alguém"],["Palestra ou evento"],["Outro"]])
-];
-
-const empresa = [
-  {type:"text",id:"emp",label:"Conte quem é você e de onde fala.",fields:[
-    ["nome","Seu nome",true],["empresa","Empresa",true],["cargo","Seu cargo",true]]},
-  R("equipe","Quantas pessoas participariam?",[["Até 10"],["De 11 a 30"],["De 31 a 100"],["Mais de 100"]]),
-  {type:"combo",id:"formato",label:"O que você procura?",opts:[
-    ["Palestra Comunicação Inteligente"],["Treinamento de comunicação para a equipe"],["Ainda estou avaliando o formato"]],
-    fields:[["objetivo","Qual resultado você quer ver na equipe? (opcional)",false,true]]},
-  R("origem","Como você chegou até aqui?",[["Instagram"],["LinkedIn"],["Indicação de alguém"],["Palestra ou evento"],["Outro"]])
-];
-
-const card = document.getElementById("card"), bar = document.getElementById("bar");
-const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-function steps(){ return path==="empresa" ? [intro,who,...empresa] : path==="mim" ? [intro,who,...individual] : [intro,who,...individual]; }
-
-function radios(s){
-  return `<div class="opts" role="radiogroup">`+s.opts.map((o,k)=>{
-    const val=o[0], id=s.id+"_"+k, sub=s.id==="para"?o[2]:"";
-    const chk = A[s.id]===val ? "checked":"";
-    return `<label class="opt" for="${id}"><input type="radio" name="${s.id}" id="${id}" value="${esc(val)}" data-tag="${o[1]||""}" ${chk}><span><b>${esc(o[s.id==="para"?1:0])}</b>${sub?`<small>${esc(sub)}</small>`:""}</span></label>`;
-  }).join("")+`</div>`;
-}
-function fields(s){
-  return s.fields.map(([id,label,req,area])=>`<label class="f" for="f_${id}">${esc(label)}</label>`+
-    (area?`<textarea id="f_${id}">${esc(A[id]||"")}</textarea>`:`<input type="text" id="f_${id}" value="${esc(A[id]||"")}" ${req?"required":""} autocomplete="${id==="nome"?"name":"off"}">`)).join("");
-}
-
-function render(){
-  const S = steps(), s = S[i];
-  bar.style.width = (i===0?4:Math.round(i/(S.length)*100))+"%";
-  if(s.type==="intro"){
-    card.innerHTML = `
+<main id="conteudo" class="form-page">
+  <div class="wrap form-wrap">
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <section class="form-card" id="card" aria-live="polite">
+      <!-- Conteúdo inicial (aparece mesmo antes do JavaScript carregar) -->
       <p class="eyebrow">Aplicação para a Análise de Negócio</p>
-      <h1>Eu preparo você para a sala onde vai estar.</h1>
-      <p class="lead">Trabalho com executivos, advogados, médicos e empresários que têm um <em class="serif">compromisso internacional com data marcada</em>: uma reunião, uma negociação, uma entrevista, um palco.</p>
-      <p>O seu inglês não está atrasado. Muitas vezes, é a ideia que ainda não está organizada. Por isso eu começo pela sua cena, não pela gramática.</p>
-      <div class="pillars" aria-label="Os quatro pilares do Método Indutivo">
-        <div><b>Cenário</b>a data, a sala, quem decide</div>
-        <div><b>Essência</b>a sua voz de comando</div>
-        <div><b>Nicho</b>o vocabulário do seu mundo</div>
-        <div><b>Atuação</b>o ensaio até virar memória</div>
-      </div>
+      <h1 class="form-title">Eu preparo você para a sala onde vai estar.</h1>
+      <p class="lead">Trabalho com executivos, advogados, médicos e empresários que têm um <em>compromisso internacional com data marcada</em>: uma reunião, uma negociação, uma entrevista, um palco.</p>
       <p class="muted">São poucas perguntas, cerca de 2 minutos. Eu leio cada aplicação pessoalmente.</p>
-      <div class="nav"><span></span><button class="primary" id="next">Começar minha aplicação</button></div>`;
-  } else {
-    const n = i-1, total = S.length-1;
-    card.innerHTML = `
-      <p class="eyebrow">Pergunta ${n+1} de ${path?total:"…"}</p>
-      <h2>${esc(s.label)}</h2>${s.help?`<p class="muted">${esc(s.help)}</p>`:""}
-      ${s.type==="radio"||s.type==="combo"?radios(s):""}
-      ${s.fields?fields(s):""}
-      <div class="err" id="err" role="alert"></div>
-      <div class="nav"><button class="ghost" id="back">Voltar</button><button class="primary" id="next">${i===S.length-1?"Ver o próximo passo":"Continuar"}</button></div>`;
-  }
-  document.getElementById("next").onclick = next;
-  const b=document.getElementById("back"); if(b) b.onclick=()=>{i--;render();};
-  card.querySelectorAll("input[type=radio]").forEach(r=>r.addEventListener("change",()=>{
-    if(s.type==="radio") setTimeout(next,220);
-  }));
-  const first = card.querySelector("input,textarea"); if(first && i>0 && first.type==="text") first.focus({preventScroll:true});
-}
+      <div class="nav"><span></span><button class="btn btn--primary" type="button" id="start">Começar minha aplicação</button></div>
+    </section>
+  </div>
+</main>
 
-function next(){
-  const S = steps(), s = S[i], err = document.getElementById("err");
-  if(s.type!=="intro"){
-    if(s.opts){
-      const r = card.querySelector(`input[name="${s.id}"]:checked`);
-      if(!r){ err.textContent="Escolha uma opção para continuar."; return; }
-      A[s.id]=r.value; A[s.id+"_tag"]=r.dataset.tag;
-      if(s.id==="para"){ const np = r.value==="mim"?"mim":"empresa"; if(np!==path){path=np;} }
-    }
-    if(s.fields){
-      for(const [id,label,req] of s.fields){
-        const v = document.getElementById("f_"+id).value.trim();
-        if(req && v.length<2){ err.textContent="Preencha: "+label.toLowerCase()+"."; return; }
-        A[id]=v;
-      }
-    }
-  }
-  if(i===S.length-1){ result(); return; }
-  i++; render(); window.scrollTo({top:0,behavior:"smooth"});
-}
+<!--
+  PARCIAL: footer.html
+  Rodapé de todas as páginas: logo, assinatura do método, Instagram e direitos.
+-->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <img class="footer__logo" src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicação Bilíngue" width="160" height="64" loading="lazy">
+    <p class="footer__tagline">Comunicação Inteligente · Método Indutivo</p>
+    <p class="footer__links">
+      <a href="https://www.instagram.com/inglesindutivo/" target="_blank" rel="noopener noreferrer">Instagram @inglesindutivo</a>
+    </p>
+    <p class="footer__rights">© 2026 Lilian Mesquita. Todos os direitos reservados.</p>
+  </div>
+</footer>
 
-function line(k,v){ return v ? `${k}: ${v}\n` : ""; }
 
-function result(){
-  bar.style.width="100%";
-  let qualified=true, motivo="";
-  if(path==="mim"){
-    if(A.compromisso_tag==="nenhum"||A.data_tag==="semdata"){qualified=false;motivo="data";}
-    else if(A.rotina_tag==="nao"){qualified=false;motivo="rotina";}
-    else if(A.invest_tag==="barato"){qualified=false;motivo="formato";}
-  }
-  if(!qualified){
-    const txt = {
-      data:`<p>Hoje, o meu trabalho é preparar profissionais para um compromisso com <em class="serif">cena e data marcadas</em>. É a data que dá direção a cada encontro, ao vocabulário e ao ensaio. Sem ela, eu não consigo entregar o processo que eu entrego.</p><p>Quando a sua reunião, entrevista, viagem ou palco tiver data, volte aqui. Vou gostar de ler a sua aplicação.</p>`,
-      rotina:`<p>O resultado do método vem do ensaio constante: um encontro por semana e uma prática curta todos os dias. Se isso não cabe na sua rotina agora, o processo não teria a força que precisa ter.</p><p>Quando houver espaço na sua agenda, volte aqui. A porta fica aberta.</p>`,
-      formato:`<p>O que eu ofereço é um processo individual, com começo, meio e fim, construído a partir da sua cena. Eu não trabalho com aulas avulsas, e por isso talvez este não seja o formato que você procura agora.</p><p>Se em algum momento você tiver um compromisso importante pela frente e quiser se preparar de verdade, volte aqui.</p>`
-    }[motivo];
-    card.innerHTML = `<p class="eyebrow">Obrigada, ${esc((A.nome||"").split(" ")[0])}</p>
-      <h2>Por enquanto, o meu programa não é o próximo passo para você.</h2>${txt}
-      <p class="muted">Enquanto isso, eu compartilho a forma como trabalho comunicação no Instagram.</p>
-      <div class="nav"><button class="ghost" id="back">Rever respostas</button><a class="btn primary" href="${INSTAGRAM}" target="_blank" rel="noopener">Acompanhar no Instagram</a></div>`;
-    document.getElementById("back").onclick=()=>{render();};
-    return;
-  }
-  let msg;
-  if(path==="empresa"){
-    msg = `Olá, Lilian! Preenchi a aplicação para minha empresa.\n\n`+line("Nome",A.nome)+line("Empresa",A.empresa)+line("Cargo",A.cargo)+
-      line("Participantes",A.equipe)+line("Procuro",A.formato)+line("Objetivo",A.objetivo)+line("Como cheguei",A.origem);
-  } else {
-    msg = `Olá, Lilian! Preenchi a aplicação para a Análise de Negócio.\n\n`+line("Nome",A.nome)+line("Área",A.area)+line("Cargo",A.cargo)+
-      line("Compromisso",A.compromisso)+line("A cena",A.cena)+line("Quando",A.data)+line("O que está em jogo",A.jogo)+
-      line("Meu inglês hoje",A.nivel)+line("Rotina",A.rotina)+line("Investimento",A.invest)+line("Como cheguei",A.origem);
-  }
-  const url = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}` : "";
-  card.innerHTML = `<p class="eyebrow">Aplicação concluída</p>
-    <h2>${path==="empresa"?"Vamos conversar sobre a sua equipe.":"A sua aplicação tem o que eu procuro: uma cena e uma data."}</h2>
-    <p>Último passo: envie suas respostas pelo WhatsApp. Eu leio pessoalmente e respondo para agendarmos ${path==="empresa"?"uma conversa":"a sua <em class=\"serif\">Análise de Negócio</em>"}.</p>
-    <div class="summary" id="sum">${esc(msg)}</div>
-    ${url?`<div class="nav"><button class="ghost" id="back">Rever respostas</button><a class="btn primary" href="${url}" target="_blank" rel="noopener">Enviar pelo WhatsApp</a></div>
-      <p class="muted" style="margin-top:14px">Se o WhatsApp não abrir, copie o texto acima e envie para <span class="phone">+55 35 98422-6585</span>.</p>`
-    :`<p class="muted">Número de WhatsApp ainda não configurado.</p>`}
-    <div class="nav" style="margin-top:6px"><span></span><button class="ghost" id="copy">Copiar respostas</button></div>`;
-  const b=document.getElementById("back"); if(b) b.onclick=()=>{render();};
-  document.getElementById("copy").onclick=async e=>{
-    try{ await navigator.clipboard.writeText(msg); e.target.textContent="Respostas copiadas"; }
-    catch(_){ const r=document.createRange(); r.selectNodeContents(document.getElementById("sum")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); e.target.textContent="Texto selecionado"; }
-  };
-}
-
-render();
-</script>
-
+<!-- Dados do formulário para o script (não é código, só texto) -->
+<script type="application/json" id="form-data">{"form":{"meta_title":"Aplicação | Lilian Mesquita","meta_description":"Aplicação para a Análise de Negócio com Lilian Mesquita. Inglês e comunicação para executivos.","eyebrow":"Aplicação para a Análise de Negócio","title":"Eu preparo você para a sala onde vai estar.","lead":"Trabalho com executivos, advogados, médicos e empresários que têm um *compromisso internacional com data marcada*: uma reunião, uma negociação, uma entrevista, um palco.","intro_note":"São poucas perguntas, cerca de 2 minutos. Eu leio cada aplicação pessoalmente.","start":"Começar minha aplicação","question_of":"Pergunta {n} de {total}","next":"Continuar","finish":"Ver o próximo passo","back":"Voltar","choose":"Escolha uma opção para continuar.","fill":"Preencha: {campo}.","who":{"id":"para","label":"Esta aplicação é para quem?","options":[{"value":"mim","label":"Para mim","desc":"Tenho um compromisso em inglês e quero me preparar"},{"value":"empresa","label":"Para minha empresa ou equipe","desc":"Palestra ou treinamento de comunicação para um grupo"}]},"individual":[{"id":"nome","label":"Como você se chama?","fields":[{"id":"nome","label":"Nome e sobrenome","required":true}]},{"id":"area","label":"Onde você atua hoje?","options":[{"value":"Executivo(a), diretor(a) ou gestor(a)"},{"value":"Advocacia"},{"value":"Medicina ou odontologia"},{"value":"Empresário(a) ou sócio(a)"},{"value":"Profissional em ascensão na empresa"},{"value":"Outra área"}],"fields":[{"id":"cargo","label":"Seu cargo ou função","required":true}]},{"id":"compromisso","label":"Qual é o seu compromisso internacional?","help":"Pense na situação real em que o inglês vai fazer diferença.","options":[{"value":"Reunião ou negociação com estrangeiros"},{"value":"Apresentação, palestra ou defesa de projeto"},{"value":"Entrevista ou processo seletivo"},{"value":"Programa, curso ou evento no exterior"},{"value":"Feira ou viagem de negócios"},{"value":"Ainda não tenho um compromisso definido","tag":"sem_compromisso"}],"fields":[{"id":"cena","label":"Descreva a cena em uma ou duas frases (onde, com quem, o que você precisa conseguir)","multiline":true}]},{"id":"data","label":"Para quando é esse compromisso?","options":[{"value":"Nos próximos 30 dias"},{"value":"Entre 1 e 3 meses"},{"value":"Entre 3 e 6 meses"},{"value":"Daqui a mais de 6 meses"},{"value":"Ainda sem data definida","tag":"sem_data"}]},{"id":"jogo","label":"O que está em jogo nessa cena?","options":[{"value":"Uma promoção ou um novo cargo"},{"value":"Um contrato ou um negócio"},{"value":"Uma vaga ou uma aprovação"},{"value":"Minha imagem e autoridade no palco ou na reunião"},{"value":"Outro motivo"}]},{"id":"nivel","label":"Como está o seu inglês hoje?","options":[{"value":"Começo praticamente do zero"},{"value":"Entendo, mas travo na hora de falar"},{"value":"Falo, mas não com a segurança que a cena exige"},{"value":"Já falo bem e quero lapidar"}]},{"id":"rotina","label":"O processo pede um encontro ao vivo por semana e uma prática curta todos os dias (gravação de 20 a 30 segundos). Isso cabe na sua rotina?","options":[{"value":"Sim, eu me comprometo"},{"value":"Preciso organizar, mas consigo"},{"value":"Neste momento, não","tag":"sem_rotina"}]},{"id":"invest","label":"Este é um processo individual, construído a partir da sua cena, e tratado como investimento de carreira. Como você está hoje em relação a isso?","options":[{"value":"Se fizer sentido, eu decido e invisto agora"},{"value":"Depende de aprovação ou reembolso da empresa"},{"value":"Procuro aulas avulsas ou a opção mais econômica","tag":"sem_formato"}]},{"id":"origem","label":"Como você chegou até aqui?","options":[{"value":"Instagram"},{"value":"LinkedIn"},{"value":"Indicação de alguém"},{"value":"Palestra ou evento"},{"value":"Outro"}]}],"empresa":[{"id":"emp","label":"Conte quem é você e de onde fala.","fields":[{"id":"nome","label":"Seu nome","required":true},{"id":"empresa","label":"Empresa","required":true},{"id":"cargo","label":"Seu cargo","required":true}]},{"id":"equipe","label":"Quantas pessoas participariam?","options":[{"value":"Até 10"},{"value":"De 11 a 30"},{"value":"De 31 a 100"},{"value":"Mais de 100"}]},{"id":"formato","label":"O que você procura?","options":[{"value":"Palestra Comunicação Inteligente"},{"value":"Treinamento de comunicação para a equipe"},{"value":"Ainda estou avaliando o formato"}],"fields":[{"id":"objetivo","label":"Qual resultado você quer ver na equipe? (opcional)","multiline":true}]},{"id":"origem","label":"Como você chegou até aqui?","options":[{"value":"Instagram"},{"value":"LinkedIn"},{"value":"Indicação de alguém"},{"value":"Palestra ou evento"},{"value":"Outro"}]}],"summary_labels":{"nome":"Nome","area":"Área","cargo":"Cargo","compromisso":"Compromisso","cena":"A cena","data":"Quando","jogo":"O que está em jogo","nivel":"Meu inglês hoje","rotina":"Rotina","invest":"Investimento","origem":"Como cheguei","empresa":"Empresa","equipe":"Participantes","formato":"Procuro","objetivo":"Objetivo"},"msg_individual":"Olá, Lilian! Preenchi a aplicação para a Análise de Negócio.","msg_empresa":"Olá, Lilian! Preenchi a aplicação para minha empresa.","ok_eyebrow":"Aplicação concluída","ok_title_individual":"A sua aplicação tem o que eu procuro: uma cena e uma data.","ok_title_empresa":"Vamos conversar sobre a sua equipe.","ok_body":"Último passo: envie suas respostas pelo WhatsApp. Eu leio pessoalmente e respondo para agendarmos a conversa.","ok_cta":"Enviar pelo WhatsApp","ok_fallback":"Se o WhatsApp não abrir, copie o texto acima e envie para {numero}.","copy":"Copiar respostas","copied":"Respostas copiadas","selected":"Texto selecionado","review":"Rever respostas","no_eyebrow":"Obrigada, {nome}","no_title":"Por enquanto, o meu programa não é o próximo passo para você.","no_sem_data":"Hoje, o meu trabalho é preparar profissionais para um compromisso com *cena e data marcadas*. É a data que dá direção a cada encontro, ao vocabulário e ao ensaio. Quando a sua reunião, entrevista, viagem ou palco tiver data, volte aqui. Vou gostar de ler a sua aplicação.","no_sem_rotina":"O resultado do método vem do ensaio constante: um encontro por semana e uma prática curta todos os dias. Se isso não cabe na sua rotina agora, o processo não teria a força que precisa ter. Quando houver espaço na sua agenda, volte aqui.","no_sem_formato":"O que eu ofereço é um processo individual, com começo, meio e fim, construído a partir da sua cena. Eu não trabalho com aulas avulsas. Se em algum momento você tiver um compromisso importante pela frente e quiser se preparar de verdade, volte aqui.","no_follow":"Enquanto isso, eu compartilho a forma como trabalho comunicação no Instagram.","no_cta":"Acompanhar no Instagram"},"whatsapp":"5535984226585","whatsapp_display":"+55 35 98422-6585","instagram_url":"https://www.instagram.com/inglesindutivo/"}</script>
+<script src="/assets/js/aplicacao.js?v=20261022" defer></script>
 </body>
 </html>

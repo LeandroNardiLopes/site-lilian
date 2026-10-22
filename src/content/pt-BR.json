@@ -1,0 +1,248 @@
+{
+  "_comentario": "Textos do site em português do Brasil. Edite só os valores entre aspas do lado direito. *palavra* vira itálico roxo. Depois de editar, rode: python3 build.py",
+
+  "lang": "pt-BR",
+  "path": "/",
+  "lang_label": "PT",
+
+  "meta": {
+    "title": "Lilian Mesquita | Inglês e comunicação para executivos",
+    "description": "Preparo executivos, advogados, médicos e empresários para reuniões, negociações, entrevistas e palestras em inglês, com o Método Indutivo.",
+    "og_title": "Lilian Mesquita · Comunicação Inteligente",
+    "og_description": "Eu não preparo você para a sala de aula. Preparo para a sala onde você vai estar."
+  },
+
+  "ui": {
+    "skip": "Pular para o conteúdo",
+    "nav_method": "Método",
+    "nav_cases": "Cases",
+    "nav_about": "Sobre",
+    "nav_talks": "Empresas",
+    "nav_cta": "Aplicar",
+    "lang_menu": "Idioma",
+    "logo_alt": "Lilian Mesquita, Comunicação Bilíngue"
+  },
+
+  "hero": {
+    "eyebrow": "Inglês e comunicação para executivos",
+    "title": "Eu não preparo você para a sala de aula. Preparo para *a sala onde você vai estar.*",
+    "lead": "Reunião, negociação, entrevista, palco. Para quem tem um compromisso internacional com data marcada e precisa chegar inteiro nele.",
+    "cta_primary": "Fazer minha aplicação",
+    "cta_secondary": "Conhecer o método",
+    "note": "Atendimento online, no Brasil e no exterior.",
+    "photo_alt": "Lilian Mesquita de blazer roxo, sentada em seu escritório"
+  },
+
+  "proof": {
+    "label": "Clientes preparados para",
+    "items": [
+      { "place": "Harvard", "detail": "Negociação" },
+      { "place": "University of Akron", "detail": "Programa executivo" },
+      { "place": "SDA Bocconi", "detail": "Bolsista em Milão" },
+      { "place": "China", "detail": "Feira internacional" }
+    ]
+  },
+
+  "question": {
+    "kicker": "A pergunta errada",
+    "title": "“Meu inglês é suficiente?”",
+    "body": "É o que quase todo executivo me pergunta na primeira conversa. A pergunta certa é outra: suficiente para quê? Para qual sala, com quem do outro lado, em que data?",
+    "thesis": "O seu inglês não está atrasado. *A sua ideia está.*",
+    "thesis_note": "Comunicação não se mede na saída. Se mede na chegada. Se a mensagem não está clara em português, ela não chega inteira em inglês."
+  },
+
+  "trap": {
+    "kicker": "A Armadilha do Aluno",
+    "title": "Quanto mais você estuda como aluno, mais espera correção.",
+    "body": "E aluno não negocia, não lidera e não palestra. Ler, anotar e revisar dão sensação de progresso. A segurança nasce quando você fala, grava e repete a situação real.",
+    "punch": "Você não é aluno. *Você é falante.*"
+  },
+
+  "method": {
+    "kicker": "Método Indutivo",
+    "title": "O caminho tem quatro passos.",
+    "intro": "Cada processo começa pela sua cena, não pela gramática. Os quatro passos funcionam juntos: tirar um deles enfraquece todo o resultado.",
+    "pillars": [
+      { "letter": "C", "name": "Cenário", "sub": "Mapa da Cena", "text": "A data, a sala, quem decide do outro lado e o que está em jogo: o cargo, o contrato, a vaga." },
+      { "letter": "E", "name": "Essência", "sub": "Voz de Comando", "text": "A ideia organizada antes de virar inglês. A mesma autoridade nas duas línguas, sem a trava emocional." },
+      { "letter": "N", "name": "Nicho", "sub": "Vocabulário de Dentro", "text": "A língua do seu mundo: direito, medicina, negociação, importação. O que você não vai usar fica de fora." },
+      { "letter": "A", "name": "Atuação", "sub": "Ensaio Real", "text": "A cena repetida até virar memória, com prática diária curta e devolutiva. Sem ler, sem anotar." }
+    ],
+    "layer": "Em todos os passos: corpo, voz e emoção. Postura, dicção e presença.",
+    "close": "A estreia não é a primeira vez."
+  },
+
+  "audience": {
+    "kicker": "Para quem é",
+    "title": "Para quem tem uma sala importante pela frente.",
+    "profiles_label": "Quem eu acompanho",
+    "profiles": ["Executivos e gestores", "Advogados", "Médicos e dentistas", "Empresários e sócios"],
+    "scenes_label": "As cenas que preparamos",
+    "scenes": ["Reunião ou negociação com estrangeiros", "Entrevista ou processo seletivo", "Apresentação, palestra ou defesa de projeto", "Programa ou curso no exterior", "Feira ou viagem de negócios"],
+    "not_for": "Não é para quem procura aulas avulsas ou um curso sem objetivo. Eu trabalho com processos com começo, meio e fim, construídos a partir de um compromisso real."
+  },
+
+  "process": {
+    "kicker": "Como funciona",
+    "title": "Da aplicação à estreia.",
+    "steps": [
+      { "name": "Aplicação", "text": "Você conta qual é a sua cena e a data. Leva cerca de 2 minutos." },
+      { "name": "Análise de Negócio", "text": "Uma conversa comigo sobre o compromisso, o que está em jogo e o formato ideal para você." },
+      { "name": "Mapa da Cena", "text": "Desenhamos juntos a sala, as pessoas e as situações que você vai enfrentar." },
+      { "name": "Ensaio semanal", "text": "Um encontro ao vivo por semana, prática diária curta com devolutiva e práticas em grupo." },
+      { "name": "Estreia", "text": "Simulação final completa. Quando o dia chega, a cena já é conhecida." }
+    ]
+  },
+
+  "cases": {
+    "kicker": "Cases",
+    "title": "Eu estudei a cena antes deles.",
+    "items": [
+      {
+        "tag": "Harvard · Curso de extensão em Negociação",
+        "name": "Isabella Witzel",
+        "role": "Advogada",
+        "text": "Ela já se comunicava em inglês, mas naquela sala precisaria argumentar e convencer. Em 45 dias, cada tema do curso virou uma situação real: BATNA, ZOPA, ancoragem, escuta ativa. Quando se sentou à mesa com um juiz americano, herdeiros árabes e grandes advogados, nenhum tema era novo.",
+        "after": "Depois, construímos juntas a palestra dela sobre negociação para advogados."
+      },
+      {
+        "tag": "University of Akron e SDA Bocconi",
+        "name": "Vinícius Vilela",
+        "role": "Advogado",
+        "text": "Primeiro, inglês para viajar sem travar. Com essa base, foi aprovado no programa executivo da University of Akron, entre cerca de 7 mil candidaturas. Depois voltou com uma nova cena, Milão: foram 24 sessões desenhadas a partir do programa da Bocconi. Foi aprovado como bolsista.",
+        "after": "Quando alguém volta para um novo objetivo, o método foi aprovado na prática."
+      }
+    ],
+    "more": "Também preparei executivos para fechar negócios numa feira internacional na China e uma cientista para defender o projeto de doutorado na Austrália."
+  },
+
+  "about": {
+    "kicker": "Quem conduz",
+    "title": "Eu odiava inglês. *A minha dificuldade virou o método.*",
+    "story": "Fui reprovada na faculdade. Separei só o que eu precisava para me comunicar e treinei do meu jeito. Em menos de três meses, eu era a única, numa sala de 45, falando inglês com os professores. Hoje preparo profissionais para as salas mais importantes da carreira deles.",
+    "photo_alt": "Retrato de Lilian Mesquita de blazer bege",
+    "credentials_label": "Formação e trajetória",
+    "credentials": [
+      "Mais de 20 anos em educação",
+      "Licenciatura plena em Letras, Português e Inglês",
+      "Extensão em Ensino Bilíngue",
+      "Especialização em Gestão Escolar e Neuroaprendizagem",
+      "Especialista comportamental, com foco em neurodivergência",
+      "Formação em Educação Especial",
+      "Coordenadora pedagógica e formadora de equipes de ensino"
+    ],
+    "signature": "Lilian Mesquita"
+  },
+
+  "talks": {
+    "kicker": "Para empresas",
+    "title": "Palestra Comunicação Inteligente",
+    "body": "Para equipes que precisam se fazer entender, se conectar e ser lembradas, em português e em inglês. Leve a tese e o método para dentro da sua empresa, em palestra ou treinamento.",
+    "cta": "Falar sobre minha equipe",
+    "photo_alt": "Lilian Mesquita palestrando, de blazer branco"
+  },
+
+  "final": {
+    "title": "Você tem um compromisso internacional com data marcada?",
+    "body": "Conte qual é a sua cena. Eu leio cada aplicação pessoalmente e respondo para agendarmos a sua Análise de Negócio.",
+    "cta": "Fazer minha aplicação",
+    "note": "Leva cerca de 2 minutos."
+  },
+
+  "footer": {
+    "tagline": "Comunicação Inteligente · Método Indutivo",
+    "instagram": "Instagram",
+    "rights": "Todos os direitos reservados."
+  },
+
+  "notfound": {
+    "title": "Página não encontrada",
+    "body": "O endereço que você abriu não existe ou mudou de lugar.",
+    "cta": "Voltar para o início"
+  },
+
+  "form": {
+    "meta_title": "Aplicação | Lilian Mesquita",
+    "meta_description": "Aplicação para a Análise de Negócio com Lilian Mesquita. Inglês e comunicação para executivos.",
+    "eyebrow": "Aplicação para a Análise de Negócio",
+    "title": "Eu preparo você para a sala onde vai estar.",
+    "lead": "Trabalho com executivos, advogados, médicos e empresários que têm um *compromisso internacional com data marcada*: uma reunião, uma negociação, uma entrevista, um palco.",
+    "intro_note": "São poucas perguntas, cerca de 2 minutos. Eu leio cada aplicação pessoalmente.",
+    "start": "Começar minha aplicação",
+    "question_of": "Pergunta {n} de {total}",
+    "next": "Continuar",
+    "finish": "Ver o próximo passo",
+    "back": "Voltar",
+    "choose": "Escolha uma opção para continuar.",
+    "fill": "Preencha: {campo}.",
+    "who": {
+      "id": "para", "label": "Esta aplicação é para quem?",
+      "options": [
+        { "value": "mim", "label": "Para mim", "desc": "Tenho um compromisso em inglês e quero me preparar" },
+        { "value": "empresa", "label": "Para minha empresa ou equipe", "desc": "Palestra ou treinamento de comunicação para um grupo" }
+      ]
+    },
+    "individual": [
+      { "id": "nome", "label": "Como você se chama?", "fields": [ { "id": "nome", "label": "Nome e sobrenome", "required": true } ] },
+      { "id": "area", "label": "Onde você atua hoje?", "options": [
+          { "value": "Executivo(a), diretor(a) ou gestor(a)" }, { "value": "Advocacia" }, { "value": "Medicina ou odontologia" },
+          { "value": "Empresário(a) ou sócio(a)" }, { "value": "Profissional em ascensão na empresa" }, { "value": "Outra área" } ],
+        "fields": [ { "id": "cargo", "label": "Seu cargo ou função", "required": true } ] },
+      { "id": "compromisso", "label": "Qual é o seu compromisso internacional?", "help": "Pense na situação real em que o inglês vai fazer diferença.", "options": [
+          { "value": "Reunião ou negociação com estrangeiros" }, { "value": "Apresentação, palestra ou defesa de projeto" },
+          { "value": "Entrevista ou processo seletivo" }, { "value": "Programa, curso ou evento no exterior" },
+          { "value": "Feira ou viagem de negócios" }, { "value": "Ainda não tenho um compromisso definido", "tag": "sem_compromisso" } ],
+        "fields": [ { "id": "cena", "label": "Descreva a cena em uma ou duas frases (onde, com quem, o que você precisa conseguir)", "multiline": true } ] },
+      { "id": "data", "label": "Para quando é esse compromisso?", "options": [
+          { "value": "Nos próximos 30 dias" }, { "value": "Entre 1 e 3 meses" }, { "value": "Entre 3 e 6 meses" },
+          { "value": "Daqui a mais de 6 meses" }, { "value": "Ainda sem data definida", "tag": "sem_data" } ] },
+      { "id": "jogo", "label": "O que está em jogo nessa cena?", "options": [
+          { "value": "Uma promoção ou um novo cargo" }, { "value": "Um contrato ou um negócio" }, { "value": "Uma vaga ou uma aprovação" },
+          { "value": "Minha imagem e autoridade no palco ou na reunião" }, { "value": "Outro motivo" } ] },
+      { "id": "nivel", "label": "Como está o seu inglês hoje?", "options": [
+          { "value": "Começo praticamente do zero" }, { "value": "Entendo, mas travo na hora de falar" },
+          { "value": "Falo, mas não com a segurança que a cena exige" }, { "value": "Já falo bem e quero lapidar" } ] },
+      { "id": "rotina", "label": "O processo pede um encontro ao vivo por semana e uma prática curta todos os dias (gravação de 20 a 30 segundos). Isso cabe na sua rotina?", "options": [
+          { "value": "Sim, eu me comprometo" }, { "value": "Preciso organizar, mas consigo" }, { "value": "Neste momento, não", "tag": "sem_rotina" } ] },
+      { "id": "invest", "label": "Este é um processo individual, construído a partir da sua cena, e tratado como investimento de carreira. Como você está hoje em relação a isso?", "options": [
+          { "value": "Se fizer sentido, eu decido e invisto agora" }, { "value": "Depende de aprovação ou reembolso da empresa" },
+          { "value": "Procuro aulas avulsas ou a opção mais econômica", "tag": "sem_formato" } ] },
+      { "id": "origem", "label": "Como você chegou até aqui?", "options": [
+          { "value": "Instagram" }, { "value": "LinkedIn" }, { "value": "Indicação de alguém" }, { "value": "Palestra ou evento" }, { "value": "Outro" } ] }
+    ],
+    "empresa": [
+      { "id": "emp", "label": "Conte quem é você e de onde fala.", "fields": [
+          { "id": "nome", "label": "Seu nome", "required": true }, { "id": "empresa", "label": "Empresa", "required": true }, { "id": "cargo", "label": "Seu cargo", "required": true } ] },
+      { "id": "equipe", "label": "Quantas pessoas participariam?", "options": [ { "value": "Até 10" }, { "value": "De 11 a 30" }, { "value": "De 31 a 100" }, { "value": "Mais de 100" } ] },
+      { "id": "formato", "label": "O que você procura?", "options": [
+          { "value": "Palestra Comunicação Inteligente" }, { "value": "Treinamento de comunicação para a equipe" }, { "value": "Ainda estou avaliando o formato" } ],
+        "fields": [ { "id": "objetivo", "label": "Qual resultado você quer ver na equipe? (opcional)", "multiline": true } ] },
+      { "id": "origem", "label": "Como você chegou até aqui?", "options": [
+          { "value": "Instagram" }, { "value": "LinkedIn" }, { "value": "Indicação de alguém" }, { "value": "Palestra ou evento" }, { "value": "Outro" } ] }
+    ],
+    "summary_labels": {
+      "nome": "Nome", "area": "Área", "cargo": "Cargo", "compromisso": "Compromisso", "cena": "A cena", "data": "Quando",
+      "jogo": "O que está em jogo", "nivel": "Meu inglês hoje", "rotina": "Rotina", "invest": "Investimento", "origem": "Como cheguei",
+      "empresa": "Empresa", "equipe": "Participantes", "formato": "Procuro", "objetivo": "Objetivo"
+    },
+    "msg_individual": "Olá, Lilian! Preenchi a aplicação para a Análise de Negócio.",
+    "msg_empresa": "Olá, Lilian! Preenchi a aplicação para minha empresa.",
+    "ok_eyebrow": "Aplicação concluída",
+    "ok_title_individual": "A sua aplicação tem o que eu procuro: uma cena e uma data.",
+    "ok_title_empresa": "Vamos conversar sobre a sua equipe.",
+    "ok_body": "Último passo: envie suas respostas pelo WhatsApp. Eu leio pessoalmente e respondo para agendarmos a conversa.",
+    "ok_cta": "Enviar pelo WhatsApp",
+    "ok_fallback": "Se o WhatsApp não abrir, copie o texto acima e envie para {numero}.",
+    "copy": "Copiar respostas",
+    "copied": "Respostas copiadas",
+    "selected": "Texto selecionado",
+    "review": "Rever respostas",
+    "no_eyebrow": "Obrigada, {nome}",
+    "no_title": "Por enquanto, o meu programa não é o próximo passo para você.",
+    "no_sem_data": "Hoje, o meu trabalho é preparar profissionais para um compromisso com *cena e data marcadas*. É a data que dá direção a cada encontro, ao vocabulário e ao ensaio. Quando a sua reunião, entrevista, viagem ou palco tiver data, volte aqui. Vou gostar de ler a sua aplicação.",
+    "no_sem_rotina": "O resultado do método vem do ensaio constante: um encontro por semana e uma prática curta todos os dias. Se isso não cabe na sua rotina agora, o processo não teria a força que precisa ter. Quando houver espaço na sua agenda, volte aqui.",
+    "no_sem_formato": "O que eu ofereço é um processo individual, com começo, meio e fim, construído a partir da sua cena. Eu não trabalho com aulas avulsas. Se em algum momento você tiver um compromisso importante pela frente e quiser se preparar de verdade, volte aqui.",
+    "no_follow": "Enquanto isso, eu compartilho a forma como trabalho comunicação no Instagram.",
+    "no_cta": "Acompanhar no Instagram"
+  }
+}

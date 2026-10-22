@@ -1,0 +1,29 @@
+<!--
+  PARCIAL: header.html
+  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
+  No celular, o menu de seções some e ficam só logo, idioma e botão.
+  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+-->
+<a class="skip" href="#conteudo">{{ t.ui.skip }}</a>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="{{ t.path }}">
+      <img src="/assets/img/logo-lilian-mesquita.png" alt="{{ t.ui.logo_alt }}" width="180" height="72">
+    </a>
+
+    <nav class="topnav" aria-label="Seções">
+      <a href="{{ t.path }}#metodo">{{ t.ui.nav_method }}</a>
+      <a href="{{ t.path }}#cases">{{ t.ui.nav_cases }}</a>
+      <a href="{{ t.path }}#sobre">{{ t.ui.nav_about }}</a>
+      <a href="{{ t.path }}#empresas">{{ t.ui.nav_talks }}</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <!-- Seletor de idioma: links simples para a mesma página em outro idioma -->
+      <nav class="langs" aria-label="{{ t.ui.lang_menu }}">
+        {{#each alternates}}<a href="{{ .href }}" hreflang="{{ .lang }}" lang="{{ .lang }}"{{{ .current_attr }}}>{{ .label }}</a>{{/each}}
+      </nav>
+      <a class="btn btn--primary btn--sm" href="{{ t.path }}aplicacao/">{{ t.ui.nav_cta }}</a>
+    </div>
+  </div>
+</header>

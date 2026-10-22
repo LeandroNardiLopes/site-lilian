@@ -1,0 +1,14 @@
+{
+  "_comentario": "Configurações gerais do site, iguais em todos os idiomas. Mude aqui o WhatsApp, o Instagram ou o domínio. Depois rode: python3 build.py",
+
+  "domain": "https://inglesindutivo.com.br",
+  "whatsapp": "5535984226585",
+  "whatsapp_display": "+55 35 98422-6585",
+  "instagram_url": "https://www.instagram.com/inglesindutivo/",
+  "instagram_handle": "@inglesindutivo",
+  "author": "Lilian Mesquita",
+  "year": "2026",
+
+  "_idiomas": "Ordem dos idiomas no seletor. O primeiro é o principal (fica na raiz do site).",
+  "languages": ["pt-BR", "en", "es"]
+}

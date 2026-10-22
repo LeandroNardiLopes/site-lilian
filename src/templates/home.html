@@ -1,0 +1,227 @@
+<!doctype html>
+<!--
+  TEMPLATE: home.html  (página inicial, gerada em / , /en/ e /es/)
+  ---------------------------------------------------------------
+  NÃO EDITE OS TEXTOS AQUI. Os textos ficam em src/content/<idioma>.json.
+  Este arquivo só define a ESTRUTURA da página, na ordem em que aparece:
+
+    1. Topo (partials/header.html)
+    2. Abertura (hero)            -> t.hero
+    3. Faixa de prova             -> t.proof
+    4. A pergunta errada          -> t.question
+    5. A Armadilha do Aluno       -> t.trap
+    6. Método Indutivo (#metodo)  -> t.method
+    7. Para quem é                -> t.audience
+    8. Como funciona              -> t.process
+    9. Cases (#cases)             -> t.cases
+   10. Quem conduz (#sobre)       -> t.about
+   11. Para empresas (#empresas)  -> t.talks
+   12. Chamada final              -> t.final
+   13. Rodapé (partials/footer.html)
+
+  A sintaxe das marcações entre chaves duplas está explicada no topo do build.py
+  e em docs/GUIA-DE-EDICAO.md.
+-->
+<html lang="{{ t.lang }}">
+<head>
+{{> head }}
+<script type="application/ld+json">{{{ page.jsonld }}}</script>
+</head>
+<body>
+{{> header }}
+
+<main id="conteudo">
+
+  <!-- 2. ABERTURA -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+        <h1 class="hero__title">{{ t.hero.title }}</h1>
+        <p class="lead">{{ t.hero.lead }}</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="{{ t.path }}aplicacao/">{{ t.hero.cta_primary }}</a>
+          <a class="btn btn--ghost" href="#metodo">{{ t.hero.cta_secondary }}</a>
+        </div>
+        <p class="note">{{ t.hero.note }}</p>
+      </div>
+      <figure class="hero__photo frame">
+        <img src="/assets/img/lilian-mesquita-escritorio.jpg" alt="{{ t.hero.photo_alt }}" width="1400" height="933" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3. FAIXA DE PROVA -->
+  <section class="proof" aria-label="{{ t.proof.label }}">
+    <div class="wrap proof__inner">
+      <p class="proof__label">{{ t.proof.label }}</p>
+      <ul class="proof__list">
+        {{#each t.proof.items}}<li><strong>{{ .place }}</strong><span>{{ .detail }}</span></li>{{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. A PERGUNTA ERRADA -->
+  <section class="section question">
+    <div class="wrap narrow center">
+      <p class="eyebrow">{{ t.question.kicker }}</p>
+      <h2 class="question__title">{{ t.question.title }}</h2>
+      <p class="lead">{{ t.question.body }}</p>
+      <p class="thesis">{{ t.question.thesis }}</p>
+      <p class="muted">{{ t.question.thesis_note }}</p>
+    </div>
+  </section>
+
+  <!-- 5. A ARMADILHA DO ALUNO -->
+  <section class="section section--tight">
+    <div class="wrap narrow">
+      <div class="trap">
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-feather"/></svg>
+        <p class="eyebrow">{{ t.trap.kicker }}</p>
+        <h2>{{ t.trap.title }}</h2>
+        <p>{{ t.trap.body }}</p>
+        <p class="trap__punch">{{ t.trap.punch }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MÉTODO INDUTIVO -->
+  <section class="section section--lilac" id="metodo">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">{{ t.method.kicker }}</p>
+        <h2>{{ t.method.title }}</h2>
+        <p class="lead">{{ t.method.intro }}</p>
+      </div>
+      <ol class="pillars">
+        {{#each t.method.pillars}}
+        <li class="pillar">
+          <span class="num" aria-hidden="true">{{ @n }}</span>
+          <h3>{{ .name }}</h3>
+          <p class="pillar__sub">{{ .sub }}</p>
+          <p>{{ .text }}</p>
+        </li>
+        {{/each}}
+      </ol>
+      <p class="method__layer"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>{{ t.method.layer }}</p>
+      <p class="method__close">{{ t.method.close }}</p>
+    </div>
+  </section>
+
+  <!-- 7. PARA QUEM É -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">{{ t.audience.kicker }}</p>
+        <h2>{{ t.audience.title }}</h2>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="label">{{ t.audience.profiles_label }}</h3>
+          <ul class="checks">
+            {{#each t.audience.profiles}}<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ . }}</li>{{/each}}
+          </ul>
+        </div>
+        <div>
+          <h3 class="label">{{ t.audience.scenes_label }}</h3>
+          <ul class="checks">
+            {{#each t.audience.scenes}}<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ . }}</li>{{/each}}
+          </ul>
+        </div>
+      </div>
+      <p class="notfor">{{ t.audience.not_for }}</p>
+    </div>
+  </section>
+
+  <!-- 8. COMO FUNCIONA -->
+  <section class="section section--peach">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">{{ t.process.kicker }}</p>
+        <h2>{{ t.process.title }}</h2>
+      </div>
+      <ol class="steps">
+        {{#each t.process.steps}}
+        <li class="step">
+          <span class="num num--outline" aria-hidden="true">{{ @n }}</span>
+          <h3>{{ .name }}</h3>
+          <p>{{ .text }}</p>
+        </li>
+        {{/each}}
+      </ol>
+      <div class="center"><a class="btn btn--primary" href="{{ t.path }}aplicacao/">{{ t.final.cta }}</a></div>
+    </div>
+  </section>
+
+  <!-- 9. CASES -->
+  <section class="section" id="cases">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">{{ t.cases.kicker }}</p>
+        <h2>{{ t.cases.title }}</h2>
+      </div>
+      <div class="cases">
+        {{#each t.cases.items}}
+        <article class="case">
+          <p class="case__tag">{{ .tag }}</p>
+          <h3>{{ .name }}<span>{{ .role }}</span></h3>
+          <p>{{ .text }}</p>
+          <p class="case__after">{{ .after }}</p>
+        </article>
+        {{/each}}
+      </div>
+      <p class="muted center cases__more">{{ t.cases.more }}</p>
+    </div>
+  </section>
+
+  <!-- 10. QUEM CONDUZ -->
+  <section class="section section--lilac" id="sobre">
+    <div class="wrap about">
+      <figure class="about__photo frame">
+        <img src="/assets/img/lilian-mesquita-blazer-bege.jpg" alt="{{ t.about.photo_alt }}" width="1200" height="675" loading="lazy">
+      </figure>
+      <div class="about__text">
+        <p class="eyebrow">{{ t.about.kicker }}</p>
+        <h2>{{ t.about.title }}</h2>
+        <p>{{ t.about.story }}</p>
+        <h3 class="label">{{ t.about.credentials_label }}</h3>
+        <ul class="checks checks--compact">
+          {{#each t.about.credentials}}<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ . }}</li>{{/each}}
+        </ul>
+        <p class="signature">{{ t.about.signature }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. PARA EMPRESAS -->
+  <section class="talks" id="empresas">
+    <div class="wrap talks__grid">
+      <div class="talks__text">
+        <p class="eyebrow eyebrow--light">{{ t.talks.kicker }}</p>
+        <h2>{{ t.talks.title }}</h2>
+        <p>{{ t.talks.body }}</p>
+        <a class="btn btn--light" href="{{ t.path }}aplicacao/#empresa">{{ t.talks.cta }}</a>
+      </div>
+      <figure class="talks__photo">
+        <img src="/assets/img/lilian-mesquita-palestrante.jpg" alt="{{ t.talks.photo_alt }}" width="747" height="930" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- 12. CHAMADA FINAL -->
+  <section class="section final">
+    <div class="wrap narrow center">
+      <svg class="icon icon--lg" aria-hidden="true"><use href="#i-globe"/></svg>
+      <h2>{{ t.final.title }}</h2>
+      <p class="lead">{{ t.final.body }}</p>
+      <a class="btn btn--primary btn--lg" href="{{ t.path }}aplicacao/">{{ t.final.cta }}</a>
+      <p class="note">{{ t.final.note }}</p>
+    </div>
+  </section>
+
+</main>
+
+{{> footer }}
+{{> icons }}
+</body>
+</html>

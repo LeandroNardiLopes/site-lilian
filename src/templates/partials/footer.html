@@ -1,0 +1,14 @@
+<!--
+  PARCIAL: footer.html
+  Rodapé de todas as páginas: logo, assinatura do método, Instagram e direitos.
+-->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <img class="footer__logo" src="/assets/img/logo-lilian-mesquita.png" alt="{{ t.ui.logo_alt }}" width="160" height="64" loading="lazy">
+    <p class="footer__tagline">{{ t.footer.tagline }}</p>
+    <p class="footer__links">
+      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer">{{ t.footer.instagram }} {{ site.instagram_handle }}</a>
+    </p>
+    <p class="footer__rights">© {{ site.year }} {{ site.author }}. {{ t.footer.rights }}</p>
+  </div>
+</footer>

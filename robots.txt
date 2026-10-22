@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /aplicacao/
+Disallow: /en/aplicacao/
+Disallow: /es/aplicacao/
+Sitemap: https://inglesindutivo.com.br/sitemap.xml

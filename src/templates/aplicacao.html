@@ -1,0 +1,43 @@
+<!doctype html>
+<!--
+  TEMPLATE: aplicacao.html  (formulário de aplicação, gerado em /aplicacao/, /en/aplicacao/, /es/aplicacao/)
+  ---------------------------------------------------------------
+  NÃO EDITE OS TEXTOS AQUI. Perguntas, opções e mensagens ficam em
+  src/content/<idioma>.json, dentro de "form".
+
+  Como funciona:
+  - O build.py coloca os textos do formulário num bloco JSON (#form-data) nesta página.
+  - O script /assets/js/aplicacao.js lê esse bloco e monta uma pergunta por tela.
+  - Nada é enviado a servidor nenhum. No fim, o lead qualificado abre o WhatsApp
+    com as respostas já escritas. Quem não se qualifica recebe uma mensagem gentil.
+  - Regras de qualificação: veja "tag" nas opções do JSON e a função qualifica() no JS.
+-->
+<html lang="{{ t.lang }}">
+<head>
+{{> head }}
+<meta name="robots" content="noindex">
+</head>
+<body class="page-form">
+{{> header }}
+
+<main id="conteudo" class="form-page">
+  <div class="wrap form-wrap">
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <section class="form-card" id="card" aria-live="polite">
+      <!-- Conteúdo inicial (aparece mesmo antes do JavaScript carregar) -->
+      <p class="eyebrow">{{ t.form.eyebrow }}</p>
+      <h1 class="form-title">{{ t.form.title }}</h1>
+      <p class="lead">{{ t.form.lead }}</p>
+      <p class="muted">{{ t.form.intro_note }}</p>
+      <div class="nav"><span></span><button class="btn btn--primary" type="button" id="start">{{ t.form.start }}</button></div>
+    </section>
+  </div>
+</main>
+
+{{> footer }}
+
+<!-- Dados do formulário para o script (não é código, só texto) -->
+<script type="application/json" id="form-data">{{{ page.form_json }}}</script>
+<script src="/assets/js/aplicacao.js?v={{ build.version }}" defer></script>
+</body>
+</html>
