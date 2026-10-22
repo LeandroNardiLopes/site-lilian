@@ -315,6 +315,7 @@ h1 em, h2 em { font-weight: 500; }
 .cases__others-label { margin: 44px 0 16px; }
 .case--small { box-shadow: none; padding: 24px; }
 .case--small h3 { font-size: 1.2rem; }
+.case h3 span:empty { display: none; }
 .case--small p:last-child { margin: 0; font-size: var(--t-sm); }
 .case__quote {
   margin: 0 0 14px; padding-left: 14px; border-left: 2px solid var(--dourado);

@@ -168,19 +168,22 @@
     "others": [
       {
         "tag": "Australia · Thesis defense",
-        "role": "Engineer",
+        "title": "Machine Learning Engineer",
+        "subtitle": "",
         "quote": "",
         "text": "He had to defend his thesis before an international panel, and English was his biggest barrier. In 4 months, we reached the goal. Today English is just one more tool he masters and uses when he needs it."
       },
       {
         "tag": "Multinational · Trade Marketing",
-        "role": "Trade Marketing Coordinator",
+        "title": "Ana",
+        "subtitle": "Trade Marketing Coordinator",
         "quote": "",
         "text": "She had already missed several chances of promotion to manager. Her communication blocks and her English kept her from competing for the role. Today she leads bilingual meetings with confidence and ease."
       },
       {
         "tag": "Food industry multinational",
-        "role": "Manager",
+        "title": "Robson",
+        "subtitle": "Plant Manager",
         "quote": "I went up to speak at a company event for 400 employees and froze with the microphone in my hand. After 3 minutes of silence, I walked out of the auditorium. I had no idea what to say or do. I thought I could improvise, but it didn't work.",
         "text": "Today he leads international meetings and speaks to his teams with authority and confidence."
       }

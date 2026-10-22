@@ -168,19 +168,22 @@
     "others": [
       {
         "tag": "Australia · Defensa de tesis",
-        "role": "Ingeniero",
+        "title": "Ingeniero de Machine Learning",
+        "subtitle": "",
         "quote": "",
         "text": "Tenía que defender su tesis ante un tribunal internacional, y el inglés era su mayor barrera. En 4 meses alcanzamos el objetivo. Hoy el inglés es una herramienta más que domina y usa cuando la necesita."
       },
       {
         "tag": "Multinacional · Trade Marketing",
-        "role": "Coordinadora de Trade Marketing",
+        "title": "Ana",
+        "subtitle": "Coordinadora de Trade Marketing",
         "quote": "",
         "text": "Ya había perdido varias oportunidades de ascenso a gerencia. Los bloqueos de comunicación y el inglés le impedían competir por el cargo. Hoy conduce reuniones bilingües con seguridad y naturalidad."
       },
       {
         "tag": "Multinacional de alimentos",
-        "role": "Gerente",
+        "title": "Robson",
+        "subtitle": "Gerente de planta",
         "quote": "Fui a dar un discurso en un evento de la empresa para 400 colaboradores y me bloqueé con el micrófono en la mano. Después de 3 minutos de silencio, me fui del auditorio. No tenía idea de qué decir o hacer. Pensé que iba a improvisar, pero no funcionó.",
         "text": "Hoy conduce reuniones internacionales y habla a sus colaboradores con autoridad y confianza."
       }
