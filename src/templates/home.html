@@ -33,7 +33,7 @@
 <main id="conteudo">
 
   <!-- 2. ABERTURA -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="wrap hero__grid">
       <div class="hero__text">
         <p class="eyebrow">{{ t.hero.eyebrow }}</p>
@@ -109,7 +109,7 @@
   </section>
 
   <!-- 7. PARA QUEM É -->
-  <section class="section">
+  <section class="section" id="para-quem">
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">{{ t.audience.kicker }}</p>
@@ -134,7 +134,7 @@
   </section>
 
   <!-- 8. COMO FUNCIONA -->
-  <section class="section section--peach">
+  <section class="section section--peach" id="como-funciona">
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">{{ t.process.kicker }}</p>
@@ -238,5 +238,6 @@
 
 {{> footer }}
 {{> icons }}
+<script src="/assets/js/site.js?v={{ build.version }}" defer></script>
 </body>
 </html>

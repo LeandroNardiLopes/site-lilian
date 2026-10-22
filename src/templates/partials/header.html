@@ -1,8 +1,15 @@
 <!--
   PARCIAL: header.html
-  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
-  No celular, o menu de seções some e ficam só logo, idioma e botão.
-  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+  Barra do topo, fixa ao rolar a página:
+  - Logo (volta ao início)
+  - Menu de seções (no computador aparece direto na barra;
+    no celular fica dentro do botão "Menu", que abre uma lista)
+  - Seletor de idioma e botão "Aplicar"
+
+  As seções do menu correspondem aos id="..." em src/templates/home.html.
+  Para acrescentar uma seção: crie o id na home, o texto em t.ui (arquivos de
+  conteúdo) e um <li> nas DUAS listas abaixo (computador e celular).
+  O destaque da seção atual é feito por /assets/js/site.js.
 -->
 <a class="skip" href="#conteudo">{{ t.ui.skip }}</a>
 <header class="topbar">
@@ -11,11 +18,13 @@
       <img src="/assets/img/logo-lilian-mesquita.png" alt="{{ t.ui.logo_alt }}" width="180" height="72">
     </a>
 
-    <nav class="topnav" aria-label="Seções">
-      <a href="{{ t.path }}#metodo">{{ t.ui.nav_method }}</a>
-      <a href="{{ t.path }}#cases">{{ t.ui.nav_cases }}</a>
-      <a href="{{ t.path }}#sobre">{{ t.ui.nav_about }}</a>
-      <a href="{{ t.path }}#empresas">{{ t.ui.nav_talks }}</a>
+    <!-- Menu no computador -->
+    <nav class="topnav" aria-label="{{ t.ui.menu }}">
+      <a href="{{ t.path }}#metodo" data-sec="metodo">{{ t.ui.nav_method }}</a>
+      <a href="{{ t.path }}#como-funciona" data-sec="como-funciona">{{ t.ui.nav_process }}</a>
+      <a href="{{ t.path }}#cases" data-sec="cases">{{ t.ui.nav_cases }}</a>
+      <a href="{{ t.path }}#sobre" data-sec="sobre">{{ t.ui.nav_about }}</a>
+      <a href="{{ t.path }}#empresas" data-sec="empresas">{{ t.ui.nav_talks }}</a>
     </nav>
 
     <div class="topbar__actions">
@@ -23,7 +32,31 @@
       <nav class="langs" aria-label="{{ t.ui.lang_menu }}">
         {{#each alternates}}<a href="{{ .href }}" hreflang="{{ .lang }}" lang="{{ .lang }}"{{{ .current_attr }}}>{{ .label }}</a>{{/each}}
       </nav>
-      <a class="btn btn--primary btn--sm" href="{{ t.path }}aplicacao/">{{ t.ui.nav_cta }}</a>
+      <a class="btn btn--primary btn--sm topbar__cta" href="{{ t.path }}aplicacao/">{{ t.ui.nav_cta }}</a>
+
+      <!-- Menu no celular: <details> abre e fecha sem depender de JavaScript -->
+      <details class="menu" id="menu">
+        <summary class="menu__btn" aria-label="{{ t.ui.menu_label }}">
+          <svg class="menu__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>{{ t.ui.menu }}</span>
+        </summary>
+        <nav class="menu__panel" aria-label="{{ t.ui.menu }}">
+          <ul>
+            <li><a href="{{ t.path }}#inicio" data-sec="inicio">{{ t.ui.nav_home }}</a></li>
+            <li><a href="{{ t.path }}#metodo" data-sec="metodo">{{ t.ui.nav_method }}</a></li>
+            <li><a href="{{ t.path }}#para-quem" data-sec="para-quem">{{ t.ui.nav_audience }}</a></li>
+            <li><a href="{{ t.path }}#como-funciona" data-sec="como-funciona">{{ t.ui.nav_process }}</a></li>
+            <li><a href="{{ t.path }}#cases" data-sec="cases">{{ t.ui.nav_cases }}</a></li>
+            <li><a href="{{ t.path }}#sobre" data-sec="sobre">{{ t.ui.nav_about }}</a></li>
+            <li><a href="{{ t.path }}#empresas" data-sec="empresas">{{ t.ui.nav_talks }}</a></li>
+          </ul>
+          <a class="btn btn--primary menu__cta" href="{{ t.path }}aplicacao/">{{ t.ui.nav_cta }}</a>
+          <!-- Em telas bem estreitas, o seletor de idioma aparece aqui dentro -->
+          <div class="langs langs--menu">
+            {{#each alternates}}<a href="{{ .href }}" hreflang="{{ .lang }}" lang="{{ .lang }}"{{{ .current_attr }}}>{{ .label }}</a>{{/each}}
+          </div>
+        </nav>
+      </details>
     </div>
   </div>
 </header>

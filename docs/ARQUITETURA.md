@@ -24,6 +24,7 @@ Para que os textos possam ser editados sem mexer no layout, e para manter três 
 | Estrutura | `src/templates/` | Ordem das seções e marcação HTML. Sem texto fixo. |
 | Visual | `src/static/assets/css/site.css` | Cores, fontes, espaços e layout responsivo. Tokens no topo. |
 | Comportamento | `src/static/assets/js/aplicacao.js` | Formulário de aplicação (uma pergunta por tela). |
+| Navegação | `src/static/assets/js/site.js` | Fecha o menu do celular e destaca a seção atual. O menu funciona mesmo sem JS (`<details>`). |
 | Geração | `build.py` | Junta as camadas e grava as páginas finais. |
 
 ## Páginas geradas

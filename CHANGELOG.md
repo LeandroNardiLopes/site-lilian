@@ -2,6 +2,11 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [2.1.0] · 2026-10-22
+### Adicionado
+- Menu de navegação: no computador, links das seções na barra do topo com destaque da seção atual; no celular, botão "Menu" com todas as seções, o botão Aplicar e o seletor de idioma.
+- Formação em Antropologia em "Quem conduz"; palavra "LinkedIn" ao lado do ícone.
+
 ## [2.0.0] · 2026-10-22
 ### Adicionado
 - Novo site institucional em três idiomas (pt-BR, en, es), com posicionamento do Plano High Level e do Método Indutivo.

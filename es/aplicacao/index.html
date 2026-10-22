@@ -64,9 +64,16 @@
 <body class="page-form">
 <!--
   PARCIAL: header.html
-  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
-  No celular, o menu de seções some e ficam só logo, idioma e botão.
-  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+  Barra do topo, fixa ao rolar a página:
+  - Logo (volta ao início)
+  - Menu de seções (no computador aparece direto na barra;
+    no celular fica dentro do botão "Menu", que abre uma lista)
+  - Seletor de idioma e botão "Aplicar"
+
+  As seções do menu correspondem aos id="..." em src/templates/home.html.
+  Para acrescentar uma seção: crie o id na home, o texto em t.ui (arquivos de
+  conteúdo) e um <li> nas DUAS listas abaixo (computador e celular).
+  O destaque da seção atual é feito por /assets/js/site.js.
 -->
 <a class="skip" href="#conteudo">Saltar al contenido</a>
 <header class="topbar">
@@ -75,11 +82,13 @@
       <img src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicación Bilingüe" width="180" height="72">
     </a>
 
-    <nav class="topnav" aria-label="Seções">
-      <a href="/es/#metodo">Método</a>
-      <a href="/es/#cases">Casos</a>
-      <a href="/es/#sobre">Sobre mí</a>
-      <a href="/es/#empresas">Empresas</a>
+    <!-- Menu no computador -->
+    <nav class="topnav" aria-label="Menú">
+      <a href="/es/#metodo" data-sec="metodo">Método</a>
+      <a href="/es/#como-funciona" data-sec="como-funciona">Cómo funciona</a>
+      <a href="/es/#cases" data-sec="cases">Casos</a>
+      <a href="/es/#sobre" data-sec="sobre">Sobre mí</a>
+      <a href="/es/#empresas" data-sec="empresas">Empresas</a>
     </nav>
 
     <div class="topbar__actions">
@@ -87,7 +96,31 @@
       <nav class="langs" aria-label="Idioma">
         <a href="/aplicacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/aplicacao/" hreflang="en" lang="en">EN</a><a href="/es/aplicacao/" hreflang="es" lang="es" aria-current="true">ES</a>
       </nav>
-      <a class="btn btn--primary btn--sm" href="/es/aplicacao/">Aplicar</a>
+      <a class="btn btn--primary btn--sm topbar__cta" href="/es/aplicacao/">Aplicar</a>
+
+      <!-- Menu no celular: <details> abre e fecha sem depender de JavaScript -->
+      <details class="menu" id="menu">
+        <summary class="menu__btn" aria-label="Abrir el menú de secciones">
+          <svg class="menu__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Menú</span>
+        </summary>
+        <nav class="menu__panel" aria-label="Menú">
+          <ul>
+            <li><a href="/es/#inicio" data-sec="inicio">Inicio</a></li>
+            <li><a href="/es/#metodo" data-sec="metodo">Método</a></li>
+            <li><a href="/es/#para-quem" data-sec="para-quem">Para quién es</a></li>
+            <li><a href="/es/#como-funciona" data-sec="como-funciona">Cómo funciona</a></li>
+            <li><a href="/es/#cases" data-sec="cases">Casos</a></li>
+            <li><a href="/es/#sobre" data-sec="sobre">Sobre mí</a></li>
+            <li><a href="/es/#empresas" data-sec="empresas">Empresas</a></li>
+          </ul>
+          <a class="btn btn--primary menu__cta" href="/es/aplicacao/">Aplicar</a>
+          <!-- Em telas bem estreitas, o seletor de idioma aparece aqui dentro -->
+          <div class="langs langs--menu">
+            <a href="/aplicacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/aplicacao/" hreflang="en" lang="en">EN</a><a href="/es/aplicacao/" hreflang="es" lang="es" aria-current="true">ES</a>
+          </div>
+        </nav>
+      </details>
     </div>
   </div>
 </header>
@@ -145,5 +178,6 @@
 <!-- Dados do formulário para o script (não é código, só texto) -->
 <script type="application/json" id="form-data">{"form":{"meta_title":"Aplicación | Lilian Mesquita","meta_description":"Aplicación para el Análisis de Negocio con Lilian Mesquita. Inglés y comunicación para ejecutivos.","eyebrow":"Aplicación para el Análisis de Negocio","title":"Te preparo para la sala en la que vas a estar.","lead":"Trabajo con ejecutivos, abogados, médicos y empresarios que tienen un *compromiso internacional con fecha*: una reunión, una negociación, una entrevista, un escenario.","intro_note":"Son pocas preguntas, unos 2 minutos. Leo cada aplicación personalmente.","start":"Empezar mi aplicación","question_of":"Pregunta {n} de {total}","next":"Continuar","finish":"Ver el siguiente paso","back":"Volver","choose":"Elige una opción para continuar.","fill":"Completa: {campo}.","who":{"id":"para","label":"¿Para quién es esta aplicación?","options":[{"value":"mim","label":"Para mí","desc":"Tengo un compromiso en inglés y quiero prepararme"},{"value":"empresa","label":"Para mi empresa o equipo","desc":"Conferencia o capacitación de comunicación para un grupo"}]},"individual":[{"id":"nome","label":"¿Cómo te llamas?","fields":[{"id":"nome","label":"Nombre y apellido","required":true}]},{"id":"area","label":"¿En qué área trabajas hoy?","options":[{"value":"Ejecutivo(a), director(a) o gerente"},{"value":"Abogacía"},{"value":"Medicina u odontología"},{"value":"Empresario(a) o socio(a)"},{"value":"Profesional en ascenso en la empresa"},{"value":"Otra área"}],"fields":[{"id":"cargo","label":"Tu cargo o función","required":true}]},{"id":"compromisso","label":"¿Cuál es tu compromiso internacional?","help":"Piensa en la situación real en la que el inglés va a marcar la diferencia.","options":[{"value":"Reunión o negociación con extranjeros"},{"value":"Presentación, conferencia o defensa de proyecto"},{"value":"Entrevista o proceso de selección"},{"value":"Programa, curso o evento en el exterior"},{"value":"Feria o viaje de negocios"},{"value":"Viaje personal o turismo"},{"value":"Todavía no tengo un compromiso definido","tag":"sem_compromisso"}],"fields":[{"id":"cena","label":"Describe la escena en una o dos frases (dónde, con quién, qué necesitas lograr)","multiline":true}]},{"id":"data","label":"¿Para cuándo es ese compromiso?","options":[{"value":"En los próximos 30 días"},{"value":"Entre 1 y 3 meses"},{"value":"Entre 3 y 6 meses"},{"value":"Dentro de más de 6 meses"},{"value":"Todavía sin fecha","tag":"sem_data"}]},{"id":"jogo","label":"¿Qué está en juego en esa escena?","options":[{"value":"Un ascenso o un nuevo cargo"},{"value":"Un contrato o un negocio"},{"value":"Un puesto o una admisión"},{"value":"Mi imagen y autoridad en el escenario o en la reunión"},{"value":"Otro motivo"}]},{"id":"nivel","label":"¿Cómo está tu inglés hoy?","options":[{"value":"Empiezo prácticamente de cero"},{"value":"Entiendo, pero me bloqueo al hablar"},{"value":"Hablo, pero no con la seguridad que la escena exige"},{"value":"Ya hablo bien y quiero pulirlo"}]},{"id":"rotina","label":"El proceso incluye encuentros en línea semanales (de 1 a 5 por semana, según el formato) y una práctica breve todos los días (una grabación de 20 a 30 segundos). ¿Cabe en tu rutina?","options":[{"value":"Sí, me comprometo"},{"value":"Necesito organizarme, pero puedo"},{"value":"En este momento, no","tag":"sem_rotina"}]},{"id":"invest","label":"Es un proceso individual, construido a partir de tu escena y tratado como una inversión de carrera. ¿Cómo estás hoy respecto a eso?","options":[{"value":"Si tiene sentido, decido e invierto ahora"},{"value":"Depende de la aprobación o el reembolso de la empresa"},{"value":"Busco clases sueltas o la opción más económica","tag":"sem_formato"}]},{"id":"origem","label":"¿Cómo llegaste hasta aquí?","options":[{"value":"Instagram"},{"value":"LinkedIn"},{"value":"Recomendación de alguien"},{"value":"Conferencia o evento"},{"value":"Otro"}]}],"empresa":[{"id":"emp","label":"Cuéntame quién eres y desde dónde hablas.","fields":[{"id":"nome","label":"Tu nombre","required":true},{"id":"empresa","label":"Empresa","required":true},{"id":"cargo","label":"Tu cargo","required":true}]},{"id":"equipe","label":"¿Cuántas personas participarían?","options":[{"value":"Hasta 10"},{"value":"De 11 a 30"},{"value":"De 31 a 100"},{"value":"Más de 100"}]},{"id":"formato","label":"¿Qué buscas?","options":[{"value":"Conferencia Comunicación Inteligente"},{"value":"Capacitación de comunicación para el equipo"},{"value":"Todavía estoy evaluando el formato"}],"fields":[{"id":"objetivo","label":"¿Qué resultado quieres ver en el equipo? (opcional)","multiline":true}]},{"id":"origem","label":"¿Cómo llegaste hasta aquí?","options":[{"value":"Instagram"},{"value":"LinkedIn"},{"value":"Recomendación de alguien"},{"value":"Conferencia o evento"},{"value":"Otro"}]}],"summary_labels":{"nome":"Nombre","area":"Área","cargo":"Cargo","compromisso":"Compromiso","cena":"La escena","data":"Cuándo","jogo":"Qué está en juego","nivel":"Mi inglés hoy","rotina":"Rutina","invest":"Inversión","origem":"Cómo llegué","empresa":"Empresa","equipe":"Participantes","formato":"Busco","objetivo":"Objetivo"},"msg_individual":"¡Hola, Lilian! Completé la aplicación para el Análisis de Negocio (sitio en español).","msg_empresa":"¡Hola, Lilian! Completé la aplicación para mi empresa (sitio en español).","ok_eyebrow":"Aplicación completada","ok_title_individual":"Tu aplicación tiene lo que busco: una escena y una fecha.","ok_title_empresa":"Hablemos sobre tu equipo.","ok_body":"Último paso: envía tus respuestas por WhatsApp. Las leo personalmente y respondo para agendar nuestra conversación.","ok_cta":"Enviar por WhatsApp","ok_fallback":"Si WhatsApp no se abre, copia el texto de arriba y envíalo a {numero}.","copy":"Copiar respuestas","copied":"Respuestas copiadas","selected":"Texto seleccionado","review":"Revisar respuestas","no_eyebrow":"Gracias, {nome}","no_title":"Por ahora, mi programa no es el siguiente paso para ti.","no_sem_data":"Hoy, mi trabajo es preparar a profesionales para un compromiso con *escena y fecha definidas*. La fecha da dirección a cada encuentro, al vocabulario y al ensayo. Cuando tu reunión, entrevista, viaje o escenario tenga fecha, vuelve aquí. Me gustará leer tu aplicación.","no_sem_rotina":"El resultado del método viene del ensayo constante: encuentros semanales y una práctica breve todos los días. Si eso no cabe en tu rutina ahora, el proceso no tendría la fuerza que necesita. Cuando haya espacio en tu agenda, vuelve aquí.","no_sem_formato":"Lo que ofrezco es un proceso individual, con principio, desarrollo y final, construido a partir de tu escena. No trabajo con clases sueltas. Si en algún momento tienes un compromiso importante por delante y quieres prepararte de verdad, vuelve aquí.","no_follow":"Mientras tanto, comparto en Instagram cómo trabajo la comunicación.","no_cta":"Seguir en Instagram"},"whatsapp":"5535984226585","whatsapp_display":"+55 35 98422-6585","instagram_url":"https://www.instagram.com/inglesindutivo/"}</script>
 <script src="/assets/js/aplicacao.js?v=20261022" defer></script>
+<script src="/assets/js/site.js?v=20261022" defer></script>
 </body>
 </html>

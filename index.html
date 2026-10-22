@@ -74,9 +74,16 @@
 <body>
 <!--
   PARCIAL: header.html
-  Barra do topo: logo, menu de seções, seletor de idioma e botão "Aplicar".
-  No celular, o menu de seções some e ficam só logo, idioma e botão.
-  Os textos vêm de t.ui no arquivo de conteúdo do idioma.
+  Barra do topo, fixa ao rolar a página:
+  - Logo (volta ao início)
+  - Menu de seções (no computador aparece direto na barra;
+    no celular fica dentro do botão "Menu", que abre uma lista)
+  - Seletor de idioma e botão "Aplicar"
+
+  As seções do menu correspondem aos id="..." em src/templates/home.html.
+  Para acrescentar uma seção: crie o id na home, o texto em t.ui (arquivos de
+  conteúdo) e um <li> nas DUAS listas abaixo (computador e celular).
+  O destaque da seção atual é feito por /assets/js/site.js.
 -->
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="topbar">
@@ -85,11 +92,13 @@
       <img src="/assets/img/logo-lilian-mesquita.png" alt="Lilian Mesquita, Comunicação Bilíngue" width="180" height="72">
     </a>
 
-    <nav class="topnav" aria-label="Seções">
-      <a href="/#metodo">Método</a>
-      <a href="/#cases">Cases</a>
-      <a href="/#sobre">Sobre</a>
-      <a href="/#empresas">Empresas</a>
+    <!-- Menu no computador -->
+    <nav class="topnav" aria-label="Menu">
+      <a href="/#metodo" data-sec="metodo">Método</a>
+      <a href="/#como-funciona" data-sec="como-funciona">Como funciona</a>
+      <a href="/#cases" data-sec="cases">Cases</a>
+      <a href="/#sobre" data-sec="sobre">Sobre</a>
+      <a href="/#empresas" data-sec="empresas">Empresas</a>
     </nav>
 
     <div class="topbar__actions">
@@ -97,7 +106,31 @@
       <nav class="langs" aria-label="Idioma">
         <a href="/" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a><a href="/en/" hreflang="en" lang="en">EN</a><a href="/es/" hreflang="es" lang="es">ES</a>
       </nav>
-      <a class="btn btn--primary btn--sm" href="/aplicacao/">Aplicar</a>
+      <a class="btn btn--primary btn--sm topbar__cta" href="/aplicacao/">Aplicar</a>
+
+      <!-- Menu no celular: <details> abre e fecha sem depender de JavaScript -->
+      <details class="menu" id="menu">
+        <summary class="menu__btn" aria-label="Abrir o menu de seções">
+          <svg class="menu__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Menu</span>
+        </summary>
+        <nav class="menu__panel" aria-label="Menu">
+          <ul>
+            <li><a href="/#inicio" data-sec="inicio">Início</a></li>
+            <li><a href="/#metodo" data-sec="metodo">Método</a></li>
+            <li><a href="/#para-quem" data-sec="para-quem">Para quem é</a></li>
+            <li><a href="/#como-funciona" data-sec="como-funciona">Como funciona</a></li>
+            <li><a href="/#cases" data-sec="cases">Cases</a></li>
+            <li><a href="/#sobre" data-sec="sobre">Sobre</a></li>
+            <li><a href="/#empresas" data-sec="empresas">Empresas</a></li>
+          </ul>
+          <a class="btn btn--primary menu__cta" href="/aplicacao/">Aplicar</a>
+          <!-- Em telas bem estreitas, o seletor de idioma aparece aqui dentro -->
+          <div class="langs langs--menu">
+            <a href="/" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a><a href="/en/" hreflang="en" lang="en">EN</a><a href="/es/" hreflang="es" lang="es">ES</a>
+          </div>
+        </nav>
+      </details>
     </div>
   </div>
 </header>
@@ -106,7 +139,7 @@
 <main id="conteudo">
 
   <!-- 2. ABERTURA -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="wrap hero__grid">
       <div class="hero__text">
         <p class="eyebrow">Inglês e comunicação para executivos</p>
@@ -203,7 +236,7 @@
   </section>
 
   <!-- 7. PARA QUEM É -->
-  <section class="section">
+  <section class="section" id="para-quem">
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Para quem é</p>
@@ -228,7 +261,7 @@
   </section>
 
   <!-- 8. COMO FUNCIONA -->
-  <section class="section section--peach">
+  <section class="section section--peach" id="como-funciona">
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Como funciona</p>
@@ -443,5 +476,6 @@
   <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></g></symbol>
 </svg>
 
+<script src="/assets/js/site.js?v=20261022" defer></script>
 </body>
 </html>

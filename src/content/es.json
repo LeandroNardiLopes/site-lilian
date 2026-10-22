@@ -20,7 +20,12 @@
     "logo_alt": "Lilian Mesquita, Comunicación Bilingüe",
     "follow": "Sigue mi trabajo",
     "instagram_label": "Instagram de Lilian Mesquita",
-    "linkedin_label": "LinkedIn de Lilian Mesquita"
+    "linkedin_label": "LinkedIn de Lilian Mesquita",
+    "nav_audience": "Para quién es",
+    "nav_process": "Cómo funciona",
+    "menu": "Menú",
+    "menu_label": "Abrir el menú de secciones",
+    "nav_home": "Inicio"
   },
   "hero": {
     "eyebrow": "Inglés y comunicación para ejecutivos",

@@ -81,6 +81,10 @@ Ao criar uma pergunta nova, acrescente o rótulo dela em `"summary_labels"` para
 3. No `build.py`, inclua a página na lista de páginas (procure `("home", ""), ("aplicacao", "aplicacao/")`) e no dicionário `modelos`.
 4. Rode o build. A página sai em `/nova/`, `/en/nova/`, `/es/nova/`.
 
+## 7.1 Mudar o menu
+
+O menu fica em `src/templates/partials/header.html`, em duas listas: uma para o computador e outra para o celular. Cada item aponta para o `id` de uma seção da `home.html` (por exemplo `#cases`). Os nomes dos itens estão em `t.ui` nos arquivos de conteúdo (`nav_method`, `nav_cases`...).
+
 ## 8. Publicar
 
 ```bash
