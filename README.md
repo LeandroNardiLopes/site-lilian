@@ -9,28 +9,6 @@ Site institucional e formulário de aplicação de **Lilian Mesquita**, mentora 
 
 ---
 
-## Para editar um texto (o caso mais comum)
-
-1. Abra o arquivo do idioma em `src/content/`:
-   - `pt-BR.json` (português) · `en.json` (inglês) · `es.json` (espanhol)
-2. Mude só o texto entre aspas **do lado direito** dos dois-pontos.
-3. Rode o gerador:
-   ```bash
-   python3 build.py --check
-   ```
-4. Confira o resultado abrindo um servidor local:
-   ```bash
-   python3 -m http.server 8000
-   ```
-   e acesse http://localhost:8000
-5. Faça commit e push. Em 1 a 2 minutos o site atualiza.
-
-> Mudou um texto em português? Mude também em `en.json` e `es.json`, para os três idiomas continuarem iguais.
-
-O passo a passo completo, com exemplos, está em **[docs/GUIA-DE-EDICAO.md](docs/GUIA-DE-EDICAO.md)**.
-
----
-
 ## Estrutura do projeto
 
 ```
