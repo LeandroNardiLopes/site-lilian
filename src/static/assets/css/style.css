@@ -52,14 +52,16 @@ header img{height:42px;width:auto}
 .btn-sm{min-height:40px;padding:0 20px;font-size:14px;background:transparent;color:var(--gold);border:1px solid var(--gold)}
 .btn-sm:hover{background:var(--gold);color:var(--navy)}
 
-/* seletor de idioma no topo */
-.hdr-right{display:flex;align-items:center;gap:10px}
-.langsel{display:flex;align-items:center;gap:2px;border:1px solid rgba(201,164,92,.35);border-radius:999px;padding:3px 5px}
-.langsel svg{width:15px;height:15px;color:var(--gold);margin:0 3px 0 3px;flex:none}
-.langsel a{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--cream);text-decoration:none;padding:7px 7px;border-radius:999px;min-width:30px;text-align:center;line-height:1}
-.langsel a:hover{color:var(--gold)}
-.langsel a[aria-current]{background:var(--gold);color:var(--navy)}
-@media (max-width:420px){header img{height:32px}.langsel svg{display:none}.hdr-right{gap:6px}.btn-sm{padding:0 14px}}
+/* seletor de idioma no topo: bandeiras; a sigla aparece ao passar o mouse */
+.hdr-right{display:flex;align-items:center;gap:12px}
+.langsel{display:flex;align-items:center;gap:6px}
+.langsel a{position:relative;display:flex;padding:3px;border-radius:50%;border:2px solid transparent;opacity:.65;transition:opacity .2s,border-color .2s}
+.langsel a svg{width:22px;height:22px;display:block}
+.langsel a:hover,.langsel a:focus-visible{opacity:1}
+.langsel a[aria-current]{opacity:1;border-color:var(--gold)}
+.langsel a::after{content:attr(data-label);position:absolute;top:100%;left:50%;transform:translate(-50%,4px);background:var(--gold);color:var(--navy);font-size:11px;font-weight:600;letter-spacing:.06em;padding:3px 7px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:5}
+.langsel a:hover::after,.langsel a:focus-visible::after{opacity:1}
+@media (max-width:420px){header img{height:32px}.hdr-right{gap:6px}.langsel{gap:2px}.btn-sm{padding:0 14px}}
 
 /* menu de seções fixo no topo (rola na horizontal no celular) */
 .subnav{border-top:1px solid rgba(201,164,92,.18)}

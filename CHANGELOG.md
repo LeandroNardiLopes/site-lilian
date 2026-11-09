@@ -2,6 +2,13 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.4.0] · 2026-11-09
+### Alterado
+- Seletor de idioma com bandeiras (Brasil, Estados Unidos, Espanha); a sigla PT, EN ou ES aparece ao passar o mouse.
+
+### Corrigido
+- CSS e JS da página nova com versão no endereço (`?v=`), para o navegador não misturar arquivo antigo do cache com o HTML novo.
+
 ## [3.3.0] · 2026-11-09
 ### Adicionado
 - Seletor de idioma no topo (PT · EN · ES, com globo no computador), com o idioma atual destacado.

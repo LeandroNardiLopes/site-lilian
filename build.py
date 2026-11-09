@@ -37,7 +37,7 @@ import json
 import re
 import shutil
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
@@ -225,7 +225,12 @@ def main():
                 "aplicacao/index.html", "en/aplicacao/index.html", "es/aplicacao/index.html"):
         estatica = ESTATICOS / rel
         if estatica.exists():
-            (RAIZ / rel).write_text(estatica.read_text(encoding="utf-8"), encoding="utf-8")
+            html = estatica.read_text(encoding="utf-8")
+            # Versão no fim do CSS e do JS para o navegador não usar arquivo antigo do cache
+            carimbo = datetime.now().strftime("%Y%m%d%H%M")
+            for arq in ("/assets/css/style.css", "/assets/js/script.js"):
+                html = html.replace(f'"{arq}"', f'"{arq}?v={carimbo}"')
+            (RAIZ / rel).write_text(html, encoding="utf-8")
 
     # 404 no idioma principal
     t = idiomas[principal]
