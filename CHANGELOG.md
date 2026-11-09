@@ -2,6 +2,13 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.2.0] · 2026-11-09
+### Adicionado
+- Menu de seções fixo abaixo do topo (Método, Quem sou, Depoimentos, Cases, Como funciona, Perguntas), nos três idiomas; destaca a seção visível e rola na horizontal no celular.
+
+### Corrigido
+- Topo com fundo sólido, sem o conteúdo aparecendo por trás ao rolar.
+
 ## [3.1.0] · 2026-11-09
 ### Adicionado
 - Página nova em inglês (`/en/`) e espanhol (`/es/`), geradas por `tools/traduzir_home.py`.

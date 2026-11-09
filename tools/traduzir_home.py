@@ -25,6 +25,9 @@ TRADUCOES = [
     ('aria-label="Lilian Mesquita, início"', 'aria-label="Lilian Mesquita, home"', 'aria-label="Lilian Mesquita, inicio"'),
     ('alt="Lilian Mesquita · Comunicação executiva bilíngue"', 'alt="Lilian Mesquita · Bilingual executive communication"', 'alt="Lilian Mesquita · Comunicación ejecutiva bilingüe"'),
     ('href="#aplicacao">Aplicar</a>', 'href="#aplicacao">Apply</a>', 'href="#aplicacao">Aplicar</a>'),
+    ('<nav class="subnav" id="subnav" aria-label="Seções da página">\n    <div class="wrap"><a href="#metodo">Método</a><a href="#sobre">Quem sou</a><a href="#depoimentos">Depoimentos</a><a href="#cases">Cases</a><a href="#como-funciona">Como funciona</a><a href="#perguntas">Perguntas</a></div>',
+     '<nav class="subnav" id="subnav" aria-label="Page sections">\n    <div class="wrap"><a href="#metodo">Method</a><a href="#sobre">About</a><a href="#depoimentos">Testimonials</a><a href="#cases">Cases</a><a href="#como-funciona">How it works</a><a href="#perguntas">FAQ</a></div>',
+     '<nav class="subnav" id="subnav" aria-label="Secciones de la página">\n    <div class="wrap"><a href="#metodo">Método</a><a href="#sobre">Sobre mí</a><a href="#depoimentos">Testimonios</a><a href="#cases">Casos</a><a href="#como-funciona">Cómo funciona</a><a href="#perguntas">Preguntas</a></div>'),
     # 1 hero
     ('alt="Lilian Mesquita em seu escritório"', 'alt="Lilian Mesquita in her office"', 'alt="Lilian Mesquita en su oficina"'),
     ('Lilian Mesquita · Inglês e comunicação para executivos</p>', 'Lilian Mesquita · English and communication for executives</p>', 'Lilian Mesquita · Inglés y comunicación para ejecutivos</p>'),

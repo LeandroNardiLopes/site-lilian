@@ -36,3 +36,20 @@
     s2.style.display='none';done.style.display='block';
   });
 })();
+
+/* Menu de seções: destaca a seção visível e mantém o atalho ativo à vista no celular */
+(function(){
+  var nav=document.getElementById('subnav'); if(!nav||!('IntersectionObserver' in window))return;
+  var faixa=nav.querySelector('.wrap'), links={};
+  nav.querySelectorAll('a[href^="#"]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  var obs=new IntersectionObserver(function(ents){
+    ents.forEach(function(e){
+      if(!e.isIntersecting)return;
+      Object.keys(links).forEach(function(k){links[k].classList.remove('ativo');links[k].removeAttribute('aria-current')});
+      var a=links[e.target.id]; if(!a)return;
+      a.classList.add('ativo'); a.setAttribute('aria-current','true');
+      faixa.scrollTo({left:a.offsetLeft-faixa.clientWidth/2+a.clientWidth/2,behavior:'smooth'});
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(links).forEach(function(id){var el=document.getElementById(id); if(el)obs.observe(el)});
+})();
