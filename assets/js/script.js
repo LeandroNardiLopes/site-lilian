@@ -19,11 +19,18 @@
     document.getElementById('cargo').focus();
   });
   document.getElementById('back').addEventListener('click',function(){s2.style.display='none';s1.style.display='block';document.getElementById('p2').classList.remove('on')});
-  function mes(v){if(!v)return'ainda não tenho data';var p=v.split('-');var m=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];return m[+p[1]-1]+'/'+p[0]}
+  // Textos da mensagem do WhatsApp no idioma da página (atributo lang do <html>)
+  var D={
+    pt:{oi:'Olá, Lilian! Fiz minha aplicação pelo site.',nome:'Nome',cena:'Cena',data:'Data',cargo:'Cargo',jogo:'O que está em jogo',sem:'ainda não tenho data',m:['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']},
+    en:{oi:'Hi Lilian! I applied through your website.',nome:'Name',cena:'Scene',data:'Date',cargo:'Position',jogo:"What's at stake",sem:"I don't have a date yet",m:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']},
+    es:{oi:'¡Hola, Lilian! Hice mi aplicación por el sitio.',nome:'Nombre',cena:'Escena',data:'Fecha',cargo:'Cargo',jogo:'Qué está en juego',sem:'todavía no tengo fecha',m:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']}
+  };
+  var L=D[(document.documentElement.lang||'pt').slice(0,2)]||D.pt;
+  function mes(v){if(!v)return L.sem;var p=v.split('-');return L.m[+p[1]-1]+'/'+p[0]}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     if(!val('cargo')){show('e-cargo',true);return}
-    var msg='Olá, Lilian! Fiz minha aplicação pelo site.\n\nNome: '+val('nome')+'\nWhatsApp: '+val('wa')+'\nCena: '+cena()+'\nData: '+(semdata.checked?'ainda não tenho data':mes(val('data')))+'\nCargo: '+val('cargo')+(val('jogo')?'\nO que está em jogo: '+val('jogo'):'');
+    var msg=L.oi+'\n\n'+L.nome+': '+val('nome')+'\nWhatsApp: '+val('wa')+'\n'+L.cena+': '+cena()+'\n'+L.data+': '+(semdata.checked?L.sem:mes(val('data')))+'\n'+L.cargo+': '+val('cargo')+(val('jogo')?'\n'+L.jogo+': '+val('jogo'):'');
     var url='https://wa.me/5535984226585?text='+encodeURIComponent(msg);
     document.getElementById('go').href=url;
     s2.style.display='none';done.style.display='block';

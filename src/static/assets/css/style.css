@@ -187,6 +187,7 @@ footer{background:var(--navy-2);color:var(--cream);padding:46px 0 110px;font-siz
 footer img{height:40px;width:auto;margin-bottom:22px}
 footer nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:22px}
 footer a{text-decoration:none;color:var(--gold)}
+footer .langs{margin-bottom:14px}
 footer small{opacity:.7}
 
 /* whatsapp flutuante */

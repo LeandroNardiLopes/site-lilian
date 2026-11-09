@@ -2,6 +2,16 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.1.0] · 2026-11-09
+### Adicionado
+- Página nova em inglês (`/en/`) e espanhol (`/es/`), geradas por `tools/traduzir_home.py`.
+- Mensagem do WhatsApp do formulário no idioma da página.
+- Links de idioma no rodapé e `hreflang` nas três páginas.
+
+### Alterado
+- `/aplicacao/`, `/en/aplicacao/` e `/es/aplicacao/` redirecionam para o formulário da página nova (`#aplicacao`).
+- Caminhos de imagens, CSS e JS da página nova passam a ser absolutos (`/assets/...`).
+
 ## [3.0.0] · 2026-11-09
 ### Alterado
 - Nova página inicial em português com o rebranding: logo LM com globo, paleta azul escuro e dourado, fontes Cormorant Garamond e Montserrat (locais).
@@ -11,9 +21,6 @@ Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no f
 - Depoimentos em vídeo de Isabella Witzel e Carol Neder.
 - Formulário de aplicação em 2 telas na própria página e botão flutuante de WhatsApp.
 - CSS e JavaScript da página nova em arquivos separados (`assets/css/style.css`, `assets/js/script.js`).
-
-### Mantido
-- `/en/`, `/es/`, `/aplicacao/` e a 404 com o visual anterior, até as traduções da página nova.
 
 ## [2.1.0] · 2026-10-22
 ### Adicionado

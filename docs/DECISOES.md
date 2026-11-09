@@ -39,10 +39,11 @@ Formato curto: contexto, decisão, motivo. Acrescente novas decisões no fim.
 
 ## D9 · Nova landing page em português (rebranding) como página estática
 - **Data:** 2026-11-09
-- **Decisão:** a página inicial em português passa a ser o arquivo `src/static/index.html` (com `assets/css/style.css` e `assets/js/script.js`), copiado para a raiz pelo `build.py` depois de gerar as páginas. `/en/`, `/es/`, `/aplicacao/` e a 404 continuam vindo dos modelos, com o visual antigo, até as traduções da página nova ficarem prontas.
+- **Decisão:** as páginas iniciais em português, inglês e espanhol passam a ser arquivos estáticos (`src/static/index.html`, `src/static/en/index.html`, `src/static/es/index.html`), copiados para a raiz pelo `build.py` depois de gerar as páginas. As versões em inglês e espanhol são geradas a partir da portuguesa por `tools/traduzir_home.py` (tabela português → inglês → espanhol). Os endereços antigos do formulário (`/aplicacao/`, `/en/aplicacao/`, `/es/aplicacao/`) redirecionam para `#aplicacao` da página do idioma, para não quebrar o link da bio e do ManyChat. A 404 continua vindo do modelo.
 - **Identidade:** logo LM com globo, azul #13233F, dourado #C9A45C, off-white #F7F4EE; Cormorant Garamond e Montserrat, servidas de `/assets/fonts` (sem Google Fonts). Substitui a D6 só na página inicial em português.
-- **Formulário:** a página nova tem formulário próprio em 2 telas que monta a mensagem do WhatsApp; a régua de qualificação da D7 continua valendo em `/aplicacao/` (link da bio e do ManyChat).
+- **Formulário:** formulário próprio em 2 telas que monta a mensagem do WhatsApp no idioma da página (`assets/js/script.js`). A régua de qualificação automática da D7 sai de uso; a qualificação passa a acontecer na conversa (Análise de Negócio). O `aplicacao.js` e os modelos antigos ficam no repositório, sem uso, até a próxima limpeza.
 - **Segurança:** mesma CSP da D5, com `media-src 'self'` para os vídeos de depoimento; sem `style=""` inline; links externos com `rel="noopener noreferrer"`.
 - **Motivo:** colocar o rebranding no ar sem esperar as traduções e sem quebrar os links existentes.
-- **Pendente:** levar a página nova para os modelos e JSON (três idiomas) e unificar os formulários.
+- **Para editar um texto:** mude em `src/static/index.html`; se o trecho existir na tabela de `tools/traduzir_home.py`, atualize lá também, rode `python3 tools/traduzir_home.py` e depois `python3 build.py`. O script para com erro se algum trecho em português não for encontrado.
+- **Pendente:** levar a página nova para os modelos e JSON e remover os arquivos antigos sem uso.
 - **Como desfazer:** a branch `backup-site-antigo` guarda o site anterior; apagar `src/static/index.html` e rodar `python3 build.py` volta a home gerada pelo modelo.
