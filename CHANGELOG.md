@@ -2,6 +2,10 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.3.0] · 2026-11-09
+### Adicionado
+- Seletor de idioma no topo (PT · EN · ES, com globo no computador), com o idioma atual destacado.
+
 ## [3.2.0] · 2026-11-09
 ### Adicionado
 - Menu de seções fixo abaixo do topo (Método, Quem sou, Depoimentos, Cases, Como funciona, Perguntas), nos três idiomas; destaca a seção visível e rola na horizontal no celular.
