@@ -218,6 +218,12 @@ def main():
             if pagina == "home":
                 urls_sitemap.append(url)
 
+    # Página inicial em português: arquivo estático (nova landing page, nov/2026).
+    # Substitui a home gerada pelo modelo; /en/ e /es/ continuam vindo do modelo. Ver D-landing-nova em docs/DECISOES.md.
+    home_estatica = ESTATICOS / "index.html"
+    if home_estatica.exists():
+        (RAIZ / "index.html").write_text(home_estatica.read_text(encoding="utf-8"), encoding="utf-8")
+
     # 404 no idioma principal
     t = idiomas[principal]
     alternates = [{"lang": x["lang"], "label": x["lang_label"], "href": x["path"], "url": dominio + x["path"],

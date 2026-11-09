@@ -2,6 +2,19 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.0.0] · 2026-11-09
+### Alterado
+- Nova página inicial em português com o rebranding: logo LM com globo, paleta azul escuro e dourado, fontes Cormorant Garamond e Montserrat (locais).
+- Copy revisada seção por seção: dores do executivo, tese, Método CENA, quem é a Lilian, cases no formato Antes → Hoje (com o case do Rafael), para quem é, como funciona, perguntas frequentes.
+
+### Adicionado
+- Depoimentos em vídeo de Isabella Witzel e Carol Neder.
+- Formulário de aplicação em 2 telas na própria página e botão flutuante de WhatsApp.
+- CSS e JavaScript da página nova em arquivos separados (`assets/css/style.css`, `assets/js/script.js`).
+
+### Mantido
+- `/en/`, `/es/`, `/aplicacao/` e a 404 com o visual anterior, até as traduções da página nova.
+
 ## [2.1.0] · 2026-10-22
 ### Adicionado
 - Menu de navegação: no computador, links das seções na barra do topo com destaque da seção atual; no celular, botão "Menu" com todas as seções, o botão Aplicar e o seletor de idioma.

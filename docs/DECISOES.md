@@ -36,3 +36,13 @@ Formato curto: contexto, decisão, motivo. Acrescente novas decisões no fim.
 ## D8 · Conteúdo sem preços
 - **Decisão:** nenhuma página mostra valores; os botões levam à aplicação.
 - **Motivo:** regra comercial da Lilian; o preço é apresentado na Análise de Negócio.
+
+## D9 · Nova landing page em português (rebranding) como página estática
+- **Data:** 2026-11-09
+- **Decisão:** a página inicial em português passa a ser o arquivo `src/static/index.html` (com `assets/css/style.css` e `assets/js/script.js`), copiado para a raiz pelo `build.py` depois de gerar as páginas. `/en/`, `/es/`, `/aplicacao/` e a 404 continuam vindo dos modelos, com o visual antigo, até as traduções da página nova ficarem prontas.
+- **Identidade:** logo LM com globo, azul #13233F, dourado #C9A45C, off-white #F7F4EE; Cormorant Garamond e Montserrat, servidas de `/assets/fonts` (sem Google Fonts). Substitui a D6 só na página inicial em português.
+- **Formulário:** a página nova tem formulário próprio em 2 telas que monta a mensagem do WhatsApp; a régua de qualificação da D7 continua valendo em `/aplicacao/` (link da bio e do ManyChat).
+- **Segurança:** mesma CSP da D5, com `media-src 'self'` para os vídeos de depoimento; sem `style=""` inline; links externos com `rel="noopener noreferrer"`.
+- **Motivo:** colocar o rebranding no ar sem esperar as traduções e sem quebrar os links existentes.
+- **Pendente:** levar a página nova para os modelos e JSON (três idiomas) e unificar os formulários.
+- **Como desfazer:** a branch `backup-site-antigo` guarda o site anterior; apagar `src/static/index.html` e rodar `python3 build.py` volta a home gerada pelo modelo.
