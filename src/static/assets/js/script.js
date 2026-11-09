@@ -16,6 +16,7 @@
     if(!semdata.checked&&!val('data')){show('e-data',true);ok=false}
     if(!ok)return;
     s1.style.display='none';s2.style.display='block';document.getElementById('p2').classList.add('on');
+    document.dispatchEvent(new CustomEvent('lm:aplicacao-inicio'));
     document.getElementById('cargo').focus();
   });
   document.getElementById('back').addEventListener('click',function(){s2.style.display='none';s1.style.display='block';document.getElementById('p2').classList.remove('on')});
@@ -34,6 +35,7 @@
     var url='https://wa.me/5535984226585?text='+encodeURIComponent(msg);
     document.getElementById('go').href=url;
     s2.style.display='none';done.style.display='block';
+    document.dispatchEvent(new CustomEvent('lm:aplicacao',{detail:{cena:cena()}}));
   });
 })();
 

@@ -36,7 +36,7 @@ form-action 'none'; upgrade-insecure-requests
 - **Links externos** com `rel="noopener noreferrer"`.
 - **Referrer-Policy** `strict-origin-when-cross-origin`.
 - **Fontes hospedadas no próprio site**: nenhum dado do visitante vai para o Google.
-- **Sem cookies, sem rastreadores, sem analytics.** Se um dia for adicionado, revisar a CSP e a LGPD.
+- **Rastreadores só com consentimento:** nas páginas novas (início e política de privacidade), GA4 e Pixel da Meta só carregam depois do "Aceitar" no aviso de cookies; a CSP libera apenas os domínios do Google e da Meta. Ver D10 em docs/DECISOES.md. As demais páginas continuam sem rastreadores.
 - **JSON embutido escapado** (`<`, `>`, `&`) pelo `build.py`, para não fechar a tag `<script>`.
 - **Limite de tamanho** nos campos do formulário (120 e 600 caracteres).
 - **Formulário fora do Google** (`noindex` e `robots.txt`).

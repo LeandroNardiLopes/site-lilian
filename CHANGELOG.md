@@ -2,6 +2,15 @@
 
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Datas no formato AAAA-MM-DD.
 
+## [3.5.0] · 2026-11-09
+### Adicionado
+- Estrutura de medição com consentimento: `rastreamento.js` com GA4 e Pixel da Meta, aviso de cookies (Aceitar/Recusar) nos três idiomas e link "Cookies" no rodapé. Desligada até os IDs serem preenchidos.
+- Eventos: clique em Aplicar, início e envio da aplicação (Lead), WhatsApp (Contact) e play nos depoimentos.
+- Política de privacidade em `/privacidade/`, `/en/privacidade/` e `/es/privacidade/`.
+
+### Alterado
+- CSP da página nova liberando só os domínios do Google e da Meta (D10).
+
 ## [3.4.0] · 2026-11-09
 ### Alterado
 - Seletor de idioma com bandeiras (Brasil, Estados Unidos, Espanha); a sigla PT, EN ou ES aparece ao passar o mouse.

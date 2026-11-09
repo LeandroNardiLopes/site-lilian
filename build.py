@@ -47,7 +47,7 @@ MODELOS = SRC / "templates"
 ESTATICOS = SRC / "static"
 
 # Pastas e arquivos que o build cria. Só eles são apagados antes de gerar.
-GERADOS = ["index.html", "404.html", "sitemap.xml", "robots.txt", "aplicacao", "en", "es", "assets"]
+GERADOS = ["index.html", "404.html", "sitemap.xml", "robots.txt", "aplicacao", "privacidade", "en", "es", "assets"]
 
 # Locale usado nas pré-visualizações de link (Open Graph)
 OG_LOCALE = {"pt-BR": "pt_BR", "en": "en_US", "es": "es_ES"}
@@ -222,14 +222,16 @@ def main():
     # Também valem para /en/, /es/ (traduções geradas por tools/traduzir_home.py) e para os
     # endereços antigos do formulário (/aplicacao/), que agora redirecionam para #aplicacao.
     for rel in ("index.html", "en/index.html", "es/index.html",
-                "aplicacao/index.html", "en/aplicacao/index.html", "es/aplicacao/index.html"):
+                "aplicacao/index.html", "en/aplicacao/index.html", "es/aplicacao/index.html",
+                "privacidade/index.html", "en/privacidade/index.html", "es/privacidade/index.html"):
         estatica = ESTATICOS / rel
         if estatica.exists():
             html = estatica.read_text(encoding="utf-8")
             # Versão no fim do CSS e do JS para o navegador não usar arquivo antigo do cache
             carimbo = datetime.now().strftime("%Y%m%d%H%M")
-            for arq in ("/assets/css/style.css", "/assets/js/script.js"):
+            for arq in ("/assets/css/style.css", "/assets/js/script.js", "/assets/js/rastreamento.js"):
                 html = html.replace(f'"{arq}"', f'"{arq}?v={carimbo}"')
+            (RAIZ / rel).parent.mkdir(parents=True, exist_ok=True)
             (RAIZ / rel).write_text(html, encoding="utf-8")
 
     # 404 no idioma principal

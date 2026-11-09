@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self'; font-src 'self'; img-src 'self' data: https://www.facebook.com https://*.google-analytics.com https://www.googletagmanager.com; media-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.facebook.com https://connect.facebook.net; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lilian Mesquita · Comunicación ejecutiva bilingüe</title>
@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="x-default" href="https://inglesindutivo.com.br/">
 <link rel="icon" href="/assets/logo/favicon.png">
 <link rel="apple-touch-icon" href="/assets/logo/icone.png">
-<link rel="stylesheet" href="/assets/css/style.css?v=202611090127">
+<link rel="stylesheet" href="/assets/css/style.css?v=202611090226">
 </head>
 <body>
 
@@ -269,7 +269,7 @@
         <div class="field"><label for="cargo">Cargo o profesión</label><input type="text" id="cargo" autocomplete="organization-title" maxlength="80"><p class="err" id="e-cargo">Escribe tu cargo o profesión.</p></div>
         <div class="field"><label for="jogo">¿Qué está en juego? <span class="opt">(opcional)</span></label><input type="text" id="jogo" maxlength="140" placeholder="Un ascenso, un contrato, una vacante…"></div>
         <button type="submit" class="btn">Enviar y continuar en WhatsApp</button>
-        <p class="privacy">Tus datos se usan solo para que Lilian evalúe tu aplicación y hable contigo. <a href="#">Política de privacidad</a>.</p>
+        <p class="privacy">Tus datos se usan solo para que Lilian evalúe tu aplicación y hable contigo. <a href="/es/privacidade/">Política de privacidad</a>.</p>
         <button type="button" class="back" id="back">Volver</button>
       </div>
       <div class="done">
@@ -289,7 +289,8 @@
       <a href="https://www.instagram.com/lilianmesquita.inglesindutivo/" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.linkedin.com/in/lilian-mesquita-ingl%C3%AAs-para-executivos-1092a415b/" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://wa.me/5535984226585" rel="noopener noreferrer">WhatsApp (35) 98422-6585</a>
-      <a href="#">Política de privacidad</a>
+      <a href="/es/privacidade/">Política de privacidad</a>
+      <a href="#" id="cookie-prefs" hidden>Cookies</a>
     </nav>
     <p class="langs"><a href="/" hreflang="pt-BR" lang="pt-BR">Português</a> · <a href="/en/" hreflang="en" lang="en">English</a> · <a href="/es/" hreflang="es" lang="es">Español</a></p>
     <small>© 2026 Lilian Mesquita</small>
@@ -300,6 +301,7 @@
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script src="/assets/js/script.js?v=202611090127"></script>
+<script src="/assets/js/script.js?v=202611090226"></script>
+<script src="/assets/js/rastreamento.js?v=202611090226"></script>
 </body>
 </html>

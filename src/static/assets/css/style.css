@@ -229,3 +229,23 @@ footer small{opacity:.7}
   .apply{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .trap{padding:46px}
 }
+
+/* aviso de cookies (criado por rastreamento.js só quando há IDs configurados) */
+.cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;background:var(--navy-2);color:var(--cream);border:1px solid rgba(201,164,92,.45);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;max-width:720px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.cookie-banner[hidden]{display:none}
+.cookie-banner p{font-size:14px;line-height:1.55}
+.cookie-banner a{color:var(--gold)}
+.cookie-actions{display:flex;gap:10px;justify-content:flex-end}
+.cookie-actions .btn{min-height:44px;padding:0 22px;font-size:14px}
+.cookie-no{background:transparent;border:1px solid rgba(233,226,211,.4);color:var(--cream);border-radius:999px;min-height:44px;padding:0 20px;font:inherit;font-size:14px;cursor:pointer}
+.cookie-no:hover{border-color:var(--cream)}
+@media (min-width:760px){.cookie-banner{flex-direction:row;align-items:center}.cookie-actions{flex:none}}
+
+/* página de política de privacidade */
+.policy-text{max-width:760px;padding-top:56px;padding-bottom:80px}
+.policy-text h1{font-size:clamp(34px,7vw,48px);color:var(--navy);margin-bottom:8px}
+.policy-text .upd{color:var(--muted);font-size:14px;margin-bottom:28px}
+.policy-text h2{font-size:26px;color:var(--navy);margin:30px 0 8px}
+.policy-text p{color:#3A4352}
+.policy-text a{color:var(--navy)}
+

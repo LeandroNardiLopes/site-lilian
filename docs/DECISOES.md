@@ -47,3 +47,12 @@ Formato curto: contexto, decisão, motivo. Acrescente novas decisões no fim.
 - **Para editar um texto:** mude em `src/static/index.html`; se o trecho existir na tabela de `tools/traduzir_home.py`, atualize lá também, rode `python3 tools/traduzir_home.py` e depois `python3 build.py`. O script para com erro se algum trecho em português não for encontrado.
 - **Pendente:** levar a página nova para os modelos e JSON e remover os arquivos antigos sem uso.
 - **Como desfazer:** a branch `backup-site-antigo` guarda o site anterior; apagar `src/static/index.html` e rodar `python3 build.py` volta a home gerada pelo modelo.
+
+## D10 · Medição (GA4 e Pixel da Meta) só com consentimento
+- **Data:** 2026-11-09
+- **Decisão:** `assets/js/rastreamento.js` (fonte em `src/static/assets/js/`) carrega o Google Analytics 4 e o Pixel da Meta **somente depois** de a pessoa clicar em "Aceitar" no aviso de cookies. "Recusar" é guardado no navegador e nada é carregado. O link "Cookies" no rodapé reabre o aviso. Com os IDs vazios, o arquivo não faz nada e o aviso não aparece.
+- **Como ativar:** colar `GA4_ID` e `META_PIXEL_ID` no topo de `src/static/assets/js/rastreamento.js`, rodar `python3 build.py` e publicar.
+- **Eventos:** `clique_aplicar` (com a seção do botão), `aplicacao_inicio` (passou da tela 1), `aplicacao_enviada` (GA4; na Meta vira **Lead**), `aplicacao_whatsapp_aberto`, `contato_whatsapp` (botão flutuante ou rodapé; na Meta vira **Contact**), `video_depoimento`. Nenhum dado pessoal vai nos eventos.
+- **CSP:** a página nova e a política de privacidade liberam, além do próprio site, só `www.googletagmanager.com`, `*.google-analytics.com`, `*.analytics.google.com`, `connect.facebook.net` e `www.facebook.com`. Continua sem script inline, sem `style=""` e sem iframes. Substitui, nessas páginas, a regra "sem rastreadores" da D5.
+- **Política de privacidade:** `/privacidade/`, `/en/privacidade/`, `/es/privacidade/` (fonte em `src/static/`). Contato pelo WhatsApp. **Pendente:** revisão por advogado.
+- **Motivo:** medir as campanhas de tráfego pago e alimentar o algoritmo da Meta com o evento certo (Lead no formulário, não no clique do WhatsApp), respeitando a LGPD.
