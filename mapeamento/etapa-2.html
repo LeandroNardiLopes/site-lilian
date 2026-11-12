@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mapeamento Comportamental · Etapa 2 de 2 · Lilian Mesquita</title>
+<link rel="icon" href="https://inglesindutivo.com.br/assets/logo/favicon.png">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-display:swap;src:url("https://inglesindutivo.com.br/assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-display:swap;src:url("https://inglesindutivo.com.br/assets/fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:Montserrat;font-weight:400;font-display:swap;src:url("https://inglesindutivo.com.br/assets/fonts/montserrat-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:Montserrat;font-weight:500;font-display:swap;src:url("https://inglesindutivo.com.br/assets/fonts/montserrat-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:Montserrat;font-weight:600;font-display:swap;src:url("https://inglesindutivo.com.br/assets/fonts/montserrat-latin-600-normal.woff2") format("woff2")}
+:root{--navy:#13233F;--navy-2:#0D1A30;--gold:#C9A45C;--gold-d:#A8823A;--gold-soft:#E6D3A8;--cream:#E9E2D3;--off:#F7F4EE;--line:#E3DCCD;--ink:#18212F;--muted:#5A6372;--white:#fff;--err:#A33A2B;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--off);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top img{height:40px;width:auto;display:block}
+.top .nome-txt{font-family:var(--serif);font-size:20px;color:var(--navy);letter-spacing:.06em;display:none}
+.etapa-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);font-weight:600;white-space:nowrap}
+.bar{height:3px;background:var(--cream)}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+main{max-width:760px;margin:0 auto;padding:36px 20px 80px}
+.step{display:none}
+.step.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);font-weight:600;margin:0 0 10px}
+h1,h2{font-family:var(--serif);font-weight:600;color:var(--navy);letter-spacing:.04em;line-height:1.15;margin:0 0 18px}
+h1{font-size:clamp(30px,6vw,42px);text-transform:uppercase;letter-spacing:.08em}
+h2{font-size:clamp(26px,5vw,34px)}
+.rule{width:56px;height:1px;background:var(--gold);margin:0 0 26px}
+p{margin:0 0 16px}
+.muted{color:var(--muted);font-size:14px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:26px 24px;margin:0 0 18px}
+.card.erro{border-color:var(--err);box-shadow:0 0 0 2px rgba(163,58,43,.12)}
+.assin{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--navy);margin-top:6px}
+label.campo{display:block;font-size:13px;font-weight:600;color:var(--navy);letter-spacing:.04em;margin:0 0 6px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:3px;background:var(--off);color:var(--ink)}
+input[type=text]:focus{outline:2px solid var(--gold);outline-offset:1px;background:var(--white)}
+.campos{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.campos{grid-template-columns:1fr}}
+.consent{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:14px}
+.consent input{width:20px;height:20px;margin-top:3px;accent-color:var(--navy);flex:none}
+/* blocos DISC */
+.bloco-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.bloco-n{font-family:var(--serif);font-size:20px;color:var(--navy);font-weight:600}
+.cols{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;display:grid;grid-template-columns:1fr 64px 64px;text-align:center}
+.cols span:first-child{text-align:left}
+.linha{display:grid;grid-template-columns:1fr 64px 64px;align-items:center;border-top:1px solid var(--line);min-height:50px}
+.linha .pal{font-size:16px;padding:8px 0}
+.opt{appearance:none;border:0;background:none;padding:0;margin:0 auto;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.opt::before{content:"";width:22px;height:22px;border-radius:50%;border:1.5px solid #B9B2A3;transition:all .15s;background:var(--white)}
+.opt:hover::before{border-color:var(--gold)}
+.opt:focus-visible{outline:2px solid var(--gold)}
+.opt.mais[aria-pressed=true]::before{background:var(--navy);border-color:var(--navy);box-shadow:inset 0 0 0 4px var(--white)}
+.opt.menos[aria-pressed=true]::before{background:var(--gold);border-color:var(--gold-d);box-shadow:inset 0 0 0 4px var(--white)}
+.linha.sel-mais .pal{color:var(--navy);font-weight:600}
+.linha.sel-menos .pal{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+/* escalas */
+.par{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+.par .esq{text-align:right}
+.par .dir{text-align:left}
+.par .esq,.par .dir{font-size:15px}
+.escala{display:flex;gap:4px}
+.num{appearance:none;font:inherit;font-weight:600;font-size:15px;width:44px;height:44px;border-radius:50%;border:1.5px solid #B9B2A3;background:var(--white);color:var(--navy);cursor:pointer;transition:all .15s}
+.num:hover{border-color:var(--gold)}
+.num:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.num[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:var(--white)}
+@media(max-width:600px){.par{grid-template-columns:1fr}.par .esq,.par .dir{text-align:left}.par .dir{text-align:right}.escala{justify-content:space-between}}
+.val .frase{font-size:16px;margin-bottom:12px}
+.val .ext{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px;max-width:236px}
+.card.compact{padding:20px 22px}
+/* navegação */
+.nav{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:28px;flex-wrap:wrap}
+.btn{appearance:none;font:inherit;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;border-radius:2px;cursor:pointer;border:1px solid var(--navy);transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;justify-content:center}
+.btn.pri{background:var(--navy);color:var(--white)}
+.btn.pri:hover{background:var(--navy-2)}
+.btn.sec{background:transparent;color:var(--navy)}
+.btn.sec:hover{background:var(--white)}
+.btn.wa{background:#1F7A4D;border-color:#1F7A4D;color:#fff;width:100%;padding:18px}
+.aviso{color:var(--err);font-size:14px;font-weight:500;min-height:22px;margin-top:10px}
+.contador{font-size:13px;color:var(--muted)}
+.resumo{background:var(--off);border:1px dashed var(--gold);padding:14px;border-radius:3px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;color:var(--navy);margin:16px 0}
+footer{border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:12px;color:var(--muted);letter-spacing:.08em}
+footer b{font-family:var(--serif);font-size:16px;color:var(--navy);font-weight:600;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <img src="https://inglesindutivo.com.br/assets/logo/logo-horizontal.svg" alt="Lilian Mesquita · Comunicação executiva bilíngue" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nome-txt">LILIAN MESQUITA</span>
+    <span class="etapa-tag" id="etapaTag"></span>
+  </div>
+  <div class="bar"><i id="barra"></i></div>
+</header>
+<main id="app"></main>
+<footer><b>LILIAN MESQUITA</b><br>Comunicação Executiva Bilíngue · Mapeamento Comportamental</footer>
+
+<script>
+const CFG = {"etapa": 2, "titulo": "Mapeamento Comportamental · Etapa 2 de 2", "tempo": "cerca de 8 minutos", "intro_extra": "Esta é a segunda e última etapa. Agora o foco muda: pense no que o seu trabalho hoje exige de você, com clientes, equipe e projetos, mesmo que seja diferente do seu jeito natural.", "secoes": [{"id": "B", "tipo": "disc", "titulo": "Parte B · Como o meu ambiente atual de trabalho exige que eu seja", "instr": "Os blocos são parecidos com os da etapa 1, mas a pergunta é outra: o que o seu trabalho hoje pede de você. Em cada bloco, marque a palavra que <b>MAIS</b> e a que <b>MENOS</b> o seu ambiente exige."}], "fim": "Obrigado! Toque no botão abaixo para enviar suas respostas para a Lilian pelo WhatsApp. Ela vai preparar o seu relatório e marcar com você a devolutiva.", "blocos": [["Decidido", "Animado", "Paciente", "Cuidadoso"], ["Ousado", "Expressivo", "Leal", "Preciso"], ["Competitivo", "Sociável", "Calmo", "Analítico"], ["Direto", "Persuasivo", "Prestativo", "Organizado"], ["Firme", "Otimista", "Constante", "Criterioso"], ["Exigente", "Espontâneo", "Tranquilo", "Metódico"], ["Determinado", "Comunicativo", "Bom ouvinte", "Disciplinado"], ["Independente", "Inspirador", "Conciliador", "Detalhista"], ["Assertivo", "Carismático", "Cooperativo", "Cauteloso"], ["Corajoso", "Divertido", "Gentil", "Lógico"], ["Enérgico", "Entusiasmado", "Estável", "Perfeccionista"], ["Objetivo", "Popular", "Compreensivo", "Sistemático"], ["Autoconfiante", "Criativo", "Moderado", "Exato"], ["Ambicioso", "Envolvente", "Previsível", "Reservado"], ["Decide rápido", "Fala com facilidade", "Evita conflitos", "Segue as regras"], ["Gosta de desafios", "Gosta de gente", "Gosta de rotina", "Gosta de qualidade"], ["Assume o comando", "Motiva o grupo", "Apoia o grupo", "Revisa o trabalho"], ["Impaciente", "Impulsivo", "Indeciso", "Crítico"], ["Mandão", "Desatento", "Acomodado", "Desconfiado"], ["Pioneiro", "Sonhador", "Fiel", "Prudente"], ["Resolve na hora", "Convence", "Acolhe", "Verifica"], ["Persistente nas metas", "Extrovertido", "Sereno", "Racional"], ["Arrisca", "Brincalhão", "Harmonioso", "Rigoroso"], ["Foco em resultados", "Foco em pessoas", "Foco em segurança", "Foco em processos"]], "jung": [["Recarrego energia com pessoas", "Recarrego energia sozinho"], ["Penso falando", "Penso antes de falar"], ["Prefiro muitos contatos", "Prefiro poucos e profundos"], ["Ajo e depois reflito", "Reflito e depois ajo"], ["Confio no que já foi testado", "Confio no que pode vir a ser"], ["Gosto de fatos e detalhes", "Gosto da visão do todo"], ["Prefiro passo a passo", "Prefiro a ideia geral e improvisar"], ["Penso no presente e no prático", "Penso no futuro e nas possibilidades"], ["Decido pela lógica", "Decido pelo impacto nas pessoas"], ["Prefiro ser justo", "Prefiro ser gentil"], ["Critico a ideia para melhorar", "Valorizo antes de criticar"], ["Busco a verdade objetiva", "Busco a harmonia"]], "valores": ["Gosto de entender o porquê de tudo", "Beleza e harmonia no ambiente me importam", "Gosto de liderar e ter influência", "Avalio o retorno do meu tempo e dinheiro", "Me realizo ajudando pessoas", "Sigo princípios e tradições bem definidos", "Reconhecimento e status me motivam", "Estudar algo novo me dá prazer", "Gosto de resultados práticos e mensuráveis", "Regras claras me dão segurança", "Preciso expressar minha criatividade", "Causas sociais me mobilizam", "Penso em custo-benefício nas decisões", "Minhas convicções guiam minha vida", "Quero ocupar posições de destaque", "Qualidade de vida pesa nas minhas escolhas", "Busco dados antes de opinar", "O bem-estar do outro vem em primeiro lugar"], "whatsapp": "5535984226585"};
+const ABCD = "abcd";
+const KEY = "lm-mapeamento-etapa-" + CFG.etapa;
+const params = new URLSearchParams(location.search);
+const clienteURL = (params.get("c") || "").trim().slice(0, 60);
+
+// estado
+let S = {nome: clienteURL, cargo: "", consent: false, inicio: Date.now(), resp: {}, passo: 0};
+try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.resp) S = Object.assign(S, s, clienteURL ? {nome: s.nome || clienteURL} : {}); } catch (e) {}
+const salvar = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+
+// embaralhamento fixo por bloco (mesma ordem se a página for recarregada)
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function ordem(secId, i){const r=rng(secId.charCodeAt(0)*1000+i*37+11);const o=[0,1,2,3];for(let k=3;k>0;k--){const j=Math.floor(r()*(k+1));[o[k],o[j]]=[o[j],o[k]]}return o}
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const app = document.getElementById("app");
+document.getElementById("etapaTag").textContent = "Etapa " + CFG.etapa + " de 2";
+
+// ---------- passos ----------
+const passos = ["intro", ...CFG.secoes.map(s => s.id), "fim"];
+
+function render(){
+  const nome1 = (S.nome || "").split(" ")[0];
+  let h = "";
+  // INTRO
+  h += `<section class="step" data-p="intro">
+    <p class="kicker">Mapeamento Comportamental</p>
+    <h1>${nome1 ? "Olá, " + esc(nome1) + "!" : "Olá!"}</h1>
+    <div class="rule"></div>
+    <div class="card">
+      <p>Este mapeamento vai me ajudar a entender como você se comunica, decide e reage sob pressão, para que a nossa mentoria seja ainda mais sob medida para você.</p>
+      <p>${CFG.intro_extra}</p>
+      <p>Ele se baseia nas teorias de Marston (DISC), Jung (Tipos Psicológicos) e Spranger (Valores). É uma ferramenta de autoconhecimento e desenvolvimento, não um teste clínico nem um diagnóstico.</p>
+      <p>Não existe resposta certa ou errada: responda pensando em como você realmente é, não em como gostaria de ser. Na dúvida, fique com a primeira impressão. Esta etapa leva ${CFG.tempo}, e suas respostas ficam guardadas neste aparelho se você precisar pausar.</p>
+      <p class="assin">Lilian Mesquita<br><span class="muted" style="font-family:var(--sans);font-style:normal">Terapeuta Comportamental</span></p>
+    </div>
+    <div class="card" id="c-dados">
+      <div class="campos">
+        <div><label class="campo" for="nome">Nome completo</label><input type="text" id="nome" autocomplete="name" value="${esc(S.nome)}"></div>
+        <div><label class="campo" for="cargo">Cargo / área</label><input type="text" id="cargo" autocomplete="organization-title" value="${esc(S.cargo)}"></div>
+      </div>
+    </div>
+    <div class="card" id="c-consent">
+      <label class="consent"><input type="checkbox" id="consent" ${S.consent ? "checked" : ""}>
+      <span>Autorizo a Lilian Mesquita a usar minhas respostas exclusivamente para gerar meu relatório comportamental e personalizar minha mentoria. Meus dados não serão compartilhados com terceiros nem usados em conteúdos sem minha autorização por escrito (LGPD).</span></label>
+    </div>
+    <div class="aviso" id="av-intro"></div>
+    <div class="nav"><span></span><button class="btn pri" data-go="next">Começar</button></div>
+  </section>`;
+
+  // SEÇÕES
+  CFG.secoes.forEach(sec => {
+    h += `<section class="step" data-p="${sec.id}"><p class="kicker">Etapa ${CFG.etapa} de 2</p><h2>${sec.titulo}</h2><div class="rule"></div><p>${sec.instr}</p>`;
+    if (sec.tipo === "disc") {
+      CFG.blocos.forEach((b, i) => {
+        const o = ordem(sec.id, i), r = (S.resp[sec.id] || [])[i] || {};
+        h += `<div class="card compact" id="q-${sec.id}-${i}"><div class="bloco-h"><span class="bloco-n">Bloco ${i+1}</span><span class="contador">de ${CFG.blocos.length}</span></div>
+          <div class="cols"><span></span><span>Mais</span><span>Menos</span></div>`;
+        o.forEach(k => {
+          const m = r.mais === k, n = r.menos === k;
+          h += `<div class="linha ${m ? "sel-mais" : ""} ${n ? "sel-menos" : ""}"><span class="pal">${esc(b[k])}</span>
+            <button class="opt mais" aria-pressed="${m}" aria-label="${esc(b[k])}: mais me descreve" data-s="${sec.id}" data-i="${i}" data-k="${k}" data-t="mais"></button>
+            <button class="opt menos" aria-pressed="${n}" aria-label="${esc(b[k])}: menos me descreve" data-s="${sec.id}" data-i="${i}" data-k="${k}" data-t="menos"></button></div>`;
+        });
+        h += `</div>`;
+      });
+    } else if (sec.tipo === "jung") {
+      CFG.jung.forEach((p, i) => {
+        const v = (S.resp[sec.id] || [])[i];
+        h += `<div class="card compact" id="q-${sec.id}-${i}"><div class="par"><span class="esq">${esc(p[0])}</span><div class="escala" role="group" aria-label="Escala de 1 a 5">`;
+        for (let n = 1; n <= 5; n++) h += `<button class="num" aria-pressed="${v === n}" data-s="${sec.id}" data-i="${i}" data-v="${n}">${n}</button>`;
+        h += `</div><span class="dir">${esc(p[1])}</span></div></div>`;
+      });
+    } else {
+      CFG.valores.forEach((f, i) => {
+        const v = (S.resp[sec.id] || [])[i];
+        h += `<div class="card compact val" id="q-${sec.id}-${i}"><div class="frase"><span class="contador">${i+1}.</span> ${esc(f)}</div><div class="escala" role="group" aria-label="Nota de 1 a 5">`;
+        for (let n = 1; n <= 5; n++) h += `<button class="num" aria-pressed="${v === n}" data-s="${sec.id}" data-i="${i}" data-v="${n}">${n}</button>`;
+        h += `</div><div class="ext"><span>Nada a ver</span><span>Totalmente eu</span></div></div>`;
+      });
+    }
+    h += `<div class="aviso" id="av-${sec.id}"></div><div class="nav"><button class="btn sec" data-go="prev">Voltar</button><span class="contador" id="cnt-${sec.id}"></span><button class="btn pri" data-go="next">Continuar</button></div></section>`;
+  });
+
+  // FIM
+  h += `<section class="step" data-p="fim"><p class="kicker">Etapa ${CFG.etapa} concluída</p><h2>Obrigado${nome1 ? ", " + esc(nome1) : ""}!</h2><div class="rule"></div>
+    <div class="card"><p>${CFG.fim}</p>
+    <a class="btn wa" id="btnWa" href="#" target="_blank" rel="noopener">Enviar para a Lilian pelo WhatsApp</a>
+    <p class="muted" style="margin-top:20px">Se o WhatsApp não abrir, copie o texto abaixo e envie para a Lilian no (35) 98422-6585.</p>
+    <div class="resumo" id="resumo"></div>
+    <button class="btn sec" id="btnCopiar">Copiar respostas</button> <span class="contador" id="copiado"></span></div>
+    <div class="nav"><button class="btn sec" data-go="prev">Revisar respostas</button></div></section>`;
+  app.innerHTML = h;
+  mostrar(S.passo);
+}
+
+function faltando(secId){
+  const sec = CFG.secoes.find(s => s.id === secId); const r = S.resp[secId] || []; const f = [];
+  const n = sec.tipo === "disc" ? CFG.blocos.length : sec.tipo === "jung" ? CFG.jung.length : CFG.valores.length;
+  for (let i = 0; i < n; i++) {
+    if (sec.tipo === "disc") { if (!r[i] || r[i].mais == null || r[i].menos == null) f.push(i); }
+    else if (!r[i]) f.push(i);
+  }
+  return f;
+}
+function contar(secId){
+  const sec = CFG.secoes.find(s => s.id === secId); const el = document.getElementById("cnt-" + secId); if (!el) return;
+  const n = sec.tipo === "disc" ? CFG.blocos.length : sec.tipo === "jung" ? CFG.jung.length : CFG.valores.length;
+  el.textContent = (n - faltando(secId).length) + " de " + n + " respondidos";
+}
+
+function mostrar(p){
+  S.passo = p; salvar();
+  document.querySelectorAll(".step").forEach(s => s.classList.toggle("on", s.dataset.p === passos[p]));
+  document.getElementById("barra").style.width = Math.round(p / (passos.length - 1) * 100) + "%";
+  if (passos[p] === "fim") montarEnvio();
+  CFG.secoes.forEach(s => contar(s.id));
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function validar(p){
+  const id = passos[p];
+  if (id === "intro") {
+    const av = document.getElementById("av-intro"); av.textContent = "";
+    document.getElementById("c-dados").classList.toggle("erro", !S.nome.trim());
+    document.getElementById("c-consent").classList.toggle("erro", !S.consent);
+    if (!S.nome.trim()) { av.textContent = "Escreva o seu nome para começar."; return false; }
+    if (!S.consent) { av.textContent = "Para continuar, marque a autorização de uso das respostas."; return false; }
+    return true;
+  }
+  if (id === "fim") return true;
+  const f = faltando(id); const av = document.getElementById("av-" + id);
+  document.querySelectorAll(`[id^="q-${id}-"]`).forEach(c => c.classList.remove("erro"));
+  if (!f.length) { av.textContent = ""; return true; }
+  f.forEach(i => document.getElementById(`q-${id}-${i}`).classList.add("erro"));
+  const sec = CFG.secoes.find(s => s.id === id);
+  av.textContent = f.length === 1 ? "Falta 1 resposta nesta parte. Ela está marcada em vermelho." : `Faltam ${f.length} respostas nesta parte. Elas estão marcadas em vermelho.`;
+  if (sec.tipo === "disc") av.textContent += " Lembre: em cada bloco, uma palavra em MAIS e outra em MENOS.";
+  document.getElementById(`q-${id}-${f[0]}`).scrollIntoView({behavior: "smooth", block: "center"});
+  return false;
+}
+
+function codigo(){
+  const partes = [];
+  CFG.secoes.forEach(sec => {
+    const r = S.resp[sec.id] || [];
+    if (sec.tipo === "disc") partes.push(sec.id + ":" + r.map(x => ABCD[x.mais] + ABCD[x.menos]).join(""));
+    else partes.push(sec.id + ":" + r.join(""));
+  });
+  return "LM" + CFG.etapa + "|" + partes.join("|");
+}
+function montarEnvio(){
+  if (!S.fim) { S.fim = Date.now(); salvar(); }
+  const min = Math.max(1, Math.round((S.fim - S.inicio) / 60000));
+  const data = new Date(S.fim).toLocaleDateString("pt-BR");
+  const txt = `Olá, Lilian! Terminei a etapa ${CFG.etapa} do Mapeamento Comportamental.\n\nNome: ${S.nome.trim()}\nCargo/área: ${S.cargo.trim() || "-"}\nAutorização LGPD: sim\nData: ${data}\nTempo de resposta: ${min} min\n\nCódigo das respostas:\n${codigo()}`;
+  document.getElementById("resumo").textContent = txt;
+  document.getElementById("btnWa").href = "https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(txt);
+}
+
+// ---------- eventos ----------
+app.addEventListener("input", e => {
+  if (e.target.id === "nome") S.nome = e.target.value;
+  if (e.target.id === "cargo") S.cargo = e.target.value;
+  salvar();
+});
+app.addEventListener("change", e => { if (e.target.id === "consent") { S.consent = e.target.checked; salvar(); } });
+app.addEventListener("click", async e => {
+  const b = e.target.closest("button, a"); if (!b) return;
+  if (b.dataset.go) {
+    e.preventDefault();
+    if (b.dataset.go === "prev") { delete S.fim; return mostrar(Math.max(0, S.passo - 1)); }
+    if (validar(S.passo)) {
+      if (passos[S.passo] === "intro") { const n1 = S.nome.trim().split(" ")[0]; document.querySelector('[data-p="fim"] h2').textContent = "Obrigado, " + n1 + "!"; }
+      mostrar(S.passo + 1);
+    }
+    return;
+  }
+  if (b.classList.contains("opt")) {
+    const s = b.dataset.s, i = +b.dataset.i, k = +b.dataset.k, t = b.dataset.t, o = t === "mais" ? "menos" : "mais";
+    S.resp[s] = S.resp[s] || []; const r = S.resp[s][i] = S.resp[s][i] || {};
+    r[t] = r[t] === k ? null : k;
+    if (r[o] === k) r[o] = null;
+    const card = document.getElementById(`q-${s}-${i}`);
+    card.querySelectorAll(".linha").forEach(l => {
+      const kk = +l.querySelector(".opt").dataset.k;
+      l.querySelector(".mais").setAttribute("aria-pressed", r.mais === kk);
+      l.querySelector(".menos").setAttribute("aria-pressed", r.menos === kk);
+      l.classList.toggle("sel-mais", r.mais === kk); l.classList.toggle("sel-menos", r.menos === kk);
+    });
+    if (r.mais != null && r.menos != null) card.classList.remove("erro");
+    salvar(); contar(s); return;
+  }
+  if (b.classList.contains("num")) {
+    const s = b.dataset.s, i = +b.dataset.i, v = +b.dataset.v;
+    S.resp[s] = S.resp[s] || []; S.resp[s][i] = v;
+    b.parentElement.querySelectorAll(".num").forEach(x => x.setAttribute("aria-pressed", +x.dataset.v === v));
+    document.getElementById(`q-${s}-${i}`).classList.remove("erro");
+    salvar(); contar(s); return;
+  }
+  if (b.id === "btnCopiar") {
+    const t = document.getElementById("resumo").textContent;
+    try { await navigator.clipboard.writeText(t); document.getElementById("copiado").textContent = "Copiado!"; }
+    catch (err) { const r = document.createRange(); r.selectNodeContents(document.getElementById("resumo")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); document.getElementById("copiado").textContent = "Texto selecionado: use Copiar."; }
+  }
+});
+render();
+</script>
+</body>
+</html>
