@@ -73,13 +73,14 @@ header img{height:42px;width:auto}
 main section[id]{scroll-margin-top:118px}
 
 /* 1 hero */
-.hero{padding:28px 0 56px}
-.hero .grid{display:grid;gap:30px}
+.hero{padding:16px 0 56px}
+.hero .grid{display:grid;gap:16px}
 .portrait{position:relative;max-width:420px}
-.portrait img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 24%;border-radius:18px}
+.portrait img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:50% 20%;border-radius:18px}
 .portrait::after{content:"";position:absolute;inset:-1px -1px -1px -1px;border:2px solid var(--gold);border-radius:16px;z-index:-1}
 .portrait{z-index:0;margin-right:12px}
-.hero .sub{font-size:18px;color:var(--cream);margin:20px 0 28px;max-width:560px}
+.hero h1{font-size:clamp(32px,7.5vw,60px)}
+.hero .sub{font-size:15.5px;line-height:1.5;color:var(--cream);margin:12px 0 18px;max-width:560px}
 .proof{margin-top:34px;padding-top:22px;border-top:1px solid rgba(201,164,92,.3)}
 .proof small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);opacity:.8;margin-bottom:8px}
 .proof div{font-family:var(--serif);font-size:23px;color:var(--gold)}
