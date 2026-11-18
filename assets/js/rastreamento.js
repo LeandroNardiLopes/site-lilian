@@ -4,9 +4,9 @@
  * Enquanto os IDs estiverem vazios, nada é carregado.
  */
 var GA4_ID = '';                 // exemplo: 'G-ABC123XYZ'
-var GOOGLE_ADS_ID = '';          // exemplo: 'AW-123456789'
-var GOOGLE_ADS_LABEL_LEAD = '';  // rótulo da conversão de Aplicação enviada (ex: 'AbCdEfGhIjK')
-var GOOGLE_ADS_LABEL_WA = '';    // rótulo da conversão de Clique no WhatsApp (pode ser o mesmo acima)
+var GOOGLE_ADS_ID = 'AW-18581613508';
+var GOOGLE_ADS_LABEL_LEAD = 'bdqjCJuUtrodEMTXs5xF';
+var GOOGLE_ADS_LABEL_WA = 'bdqjCJuUtrodEMTXs5xF';
 var META_PIXEL_ID = '';          // exemplo: '123456789012345'
 
 (function () {
